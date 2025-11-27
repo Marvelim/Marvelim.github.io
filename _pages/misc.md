@@ -1,5 +1,5 @@
 ---
-layout: misc
+layout: page
 permalink: /misc/
 title: Misc
 nav: true
