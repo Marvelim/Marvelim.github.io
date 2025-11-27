@@ -8,3 +8,5 @@ description: This is a description of the page. You can modify it in '_pages/mis
 toc:
   sidebar: left
 ---
+
+I love magic
