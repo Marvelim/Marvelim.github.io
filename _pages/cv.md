@@ -4,7 +4,7 @@ permalink: /cv/
 title: CV
 nav: true
 nav_order: 1
-description: 
+description:
 ---
 
 <div class="pdf-container" style="width: 100%; height: 100vh;">
