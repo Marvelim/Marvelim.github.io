@@ -18,18 +18,18 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 
 awards:
   items:
-    - title: John Hopcroft Scholarship
+    - title: <strong>John Hopcroft Scholarship</strong>
       year: 2025
-      description: Awarded by Peking University
-    - title: Silver Medal, National Olympiad in Informatics (NOI)
-      year: 2021
-      description: Awarded by China Computer Federation
-    - title: Second Prize, $22^{\text{nd}}$ Programming Competition of Peking University
-      year: 2024
       description: Awarded by Peking University
     - title: Second Prize in Problem Setting, $23^{\text{rd}}$ Programming Competition of Peking University
       year: 2025
       description: Awarded by Peking University
+    - title: Second Prize, $22^{\text{nd}}$ Programming Competition of Peking University
+      year: 2024
+      description: Awarded by Peking University
+    - title: <strong>Silver Medal, National Olympiad in Informatics (NOI)</strong>
+      year: 2021
+      description: Awarded by China Computer Federation
 
 social: false
 
