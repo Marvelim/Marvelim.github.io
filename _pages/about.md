@@ -9,6 +9,7 @@ profile:
   image: nano.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
+    <p> ⬆️ By Nano Banana Pro </p>
     <p> 🏫 Peking University </p>
     <p> 📍 Beijing, China </p>
     <p>📧 <a href="mailto:mingyulics@stu.pku.edu.cn">Email</a></p>
