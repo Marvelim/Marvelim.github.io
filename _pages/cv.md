@@ -1,11 +1,19 @@
 ---
-layout: cv
+layout: page
 permalink: /cv/
 title: CV
 nav: true
 nav_order: 1
-cv_pdf: example_pdf.pdf # you can also use external links here
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
-toc:
-  sidebar: left
+description: 
 ---
+
+<div class="pdf-container" style="width: 100%; height: 100vh;">
+  <embed src="{{ '/assets/pdf/CV.pdf' | relative_url }}" type="application/pdf" width="100%" height="100%" />
+</div>
+
+<style>
+.pdf-container {
+  margin: 0 auto;
+  max-width: 100%;
+}
+</style>

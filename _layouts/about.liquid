@@ -64,6 +64,26 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+    <!-- Awards -->
+    {% if page.awards %}
+      <h2>awards</h2>
+      <div class="awards">
+        {% for award in page.awards.items %}
+          <div class="award-item" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: baseline;">
+            <div style="flex: 1;">
+              <strong>{{ award.title }}</strong>
+              {% if award.description %}
+                <p style="margin: 0.5rem 0 0 0; color: var(--global-text-color-light);">{{ award.description }}</p>
+              {% endif %}
+            </div>
+            {% if award.year %}
+              <div style="margin-left: 1rem; white-space: nowrap; color: var(--global-text-color-light);">{{ award.year }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <!-- Social -->
     {% if page.social %}
       <div class="social">
