@@ -1,0 +1,56 @@
+音乐与数学	Music and Mathematics	通选课	3	98
+篮球竞赛与裁判基础	Fundamentals of Basketball Competition and Officiating	全校必修	1	93
+计算机组织与体系结构	Computer Architectures	专业必修	3	W
+生成模型基础	Introduction to Generative Modeling	任选	3	A+
+自然语言处理	Natural Language Processing	专业必修	3	92
+大模型与智能体专题	Foundation Models and Agents	任选	2	A+
+中级微观经济学	Intermediate Microeconomics	任选	3	98.5
+
+24-25学年度2学期
+
+课程名称	英文名称	课程类别	学分	成绩
+英语公众演讲	English Public Speaking	全校必修	2	93
+艺术与审美	Art and aesthetic	通选课	2	合格
+算法设计与分析（实验班）	Algorithm Design and Analysis (Honor Track)	专业必修	5	99
+计算理论导论	Introduction to the Theory of Computation	专业必修	3	89.3
+前沿计算研究实践（II）	Study and Practice on Topics of Frontier Computing (II)	专业必修	3	98.5
+计算摄像学：成像模型理论与深度学习实践	Computational Photography: Image Formation Theory and Deep Learning Practice	任选	2	96
+数值分析	Introduction to Numerical Analysis	限选	3	93
+信息科学技术劳动实践	Labor Practice for Electronics Engineering and Computer Science	任选	1	合格
+
+24-25学年度1学期
+
+课程名称	英文名称	课程类别	学分	成绩
+人类学导论	Introduction to Anthropology	通选课	2	87.5
+新时代劳动理论	Labor Theory	全校任选	1	合格
+数据结构与算法 (A) (实验班)	Data Structure and Algorithms(A)(Honor Track)	专业必修	3	96.5
+计算机系统导论	Introduction to Computer Systems	专业必修	5	93
+离散数学与结构（I）	Discrete Mathematics and Structures (I)	专业必修	3	89
+前沿计算研究实践（I）	Study and Practice on Topics of Frontier Computing(I)	专业必修	3	96
+信息学中的概率统计	Probability theory and statistics in information science	任选	3	88
+材料与时代	Materials and Era	通选课	2	96
+
+23-24学年度2学期
+
+课程名称	英文名称	课程类别	学分	成绩
+数学分析（II）	Mathematical Analysis (II)	专业必修	5	80
+高等代数 (II )	Advanced Algebra (II)	专业必修	4	76
+中国近现代史纲要	Outline of Chinese Modern History	全校必修	3	84
+程序设计实习(实验班)	Practice of Programming in C&C++(Honor Track)	专业必修	3	94
+微电子与电路基础	An Introduction to Microelectronics and Circuits	专业必修	2	合格
+人工智能基础	Fundamentals of Artificial Intelligence	专业必修	3	96
+新时代劳动者十讲	Ten Talks on New Era Workers	全校任选	0	合格
+思想政治实践（下）	Social practice and service learning, Part II	全校必修	1	合格
+
+23-24学年度1学期
+
+课程名称	英文名称	课程类别	学分	成绩
+数学分析（I）	Mathematical Analysis (I)	专业必修	5	61
+高等代数（I）	Advanced Algebra (I)	专业必修	5	92
+地震概论	Introduction to Seismology	通选课	2	98
+思想道德与法治	Ideology, morality and Law	全校必修	3	76.5
+太极拳	Shadowboxing	全校必修	1	90
+信息科学技术概论	Introduction to Information Science and Technique	专业必修	1	合格
+计算概论A	Introduction to Computation (A)	专业必修	3	96
+军事理论	Military Theory	全校必修	2	82
+思想政治实践（上）	Social practice and service learning, Part I	全校必修	1	合格
