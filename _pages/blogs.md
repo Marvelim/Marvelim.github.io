@@ -18,18 +18,8 @@ pagination:
 
 <div class="post">
 
-{% assign blog_name_size = site.blog_name | size %}
-{% assign blog_description_size = site.blog_description | size %}
 {% assign post_tags = site.tags | sort %}
 {% assign post_categories = site.categories | sort %}
-
-{% if blog_name_size > 0 or blog_description_size > 0 %}
-
-  <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
-    <h2>{{ site.blog_description }}</h2>
-  </div>
-  {% endif %}
 
 {% if post_tags.size > 0 or post_categories.size > 0 %}
 
