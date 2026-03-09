@@ -14,3 +14,5 @@ nav_order: 5
 - [Lu Chen](<https://en.wikipedia.org/wiki/Lu_Chen_(magician)>)'s Lectures hosted by Tsinghua University.
 
 You can watch some of my perfomance [here](https://www.bilibili.com/video/BV1BMHwz3Ee8/) and [here](https://www.bilibili.com/video/BV1vr421778j/?spm_id_from=333.1387.homepage.video_card.click)!
+
+**Music**: I love playing piano in my spare time. Meanwhile, I also enjoy listening to various styles of music in my spare time. I have many favorite bands and singers, including ***Omnipotent Youth Society***, ***Terry Lin***, ***Cheer Chen***, ...
