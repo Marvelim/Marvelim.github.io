@@ -21,6 +21,10 @@ pagination:
 {% assign post_tags = site.tags | sort %}
 {% assign post_categories = site.categories | sort %}
 
+<div class="header-bar">
+  <h1>Academic Blog</h1>
+</div>
+
 {% if post_tags.size > 0 or post_categories.size > 0 %}
 
   <div class="tag-category-list">
