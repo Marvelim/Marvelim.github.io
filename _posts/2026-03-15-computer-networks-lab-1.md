@@ -16,7 +16,7 @@ categories: [research]
 
 **A.** 一个包分为 header（头）和 payload（负载）两部分。使用 `scapy` 的 `sniff(timeout = 5)` 可以记录一段时间内的所有包。使用 `wrpcap` 可以存储为 `cap/pcap` 文件。
 
-```py
+```python
 def MySniff():
     print("sniffing start")
     #################################
@@ -35,7 +35,13 @@ def MySniff():
 **Q.** 完成函数 `Q2`，要求：在 `http.cap` 中寻找第一个目的端口为 $80$ 的 `TCP` 分组，并返回该分组的源 `MAC` 地址和目的 `MAC` 地址（字符串格式）。  
 注：该分组即第一个 `HTTP` 请求分组。
 
-**A.** 需要知道一个 packet 里具体有什么 **：`p1 = [ Ethernet Header ] + [ IP Header ] + [ TCP Header ] + [ HTTP Data ]`**. 比如：
+**A.** 需要知道一个 packet 的层级结构。可以表示为：
+
+```text
+p1 = [ Ethernet Header ] + [ IP Header ] + [ TCP Header ] + [ HTTP Data ]
+```
+
+例如：
 
 ```text
 ###[ Ethernet ]###
@@ -113,7 +119,7 @@ def Q2():
 
 然而如果是 SYN (Synchronize，同步序列号) 或 FIN (Finish，完成发送任务) 包的时候 len(A) 要 $+1$，这可以由标记位确定。由此，可以写出以下代码
 
-```py
+```python
 def Q3():    
     theType = 0
     theProto = 0
