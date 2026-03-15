@@ -3,6 +3,7 @@ layout: post
 title: 我的第一篇公式博客
 date: 2026-03-09 10:00:00+08:00
 description: 用 Markdown + LaTeX 写一篇技术笔记
+password: "blog1234"
 tags: [math, notes]
 categories: [research]
 ---
