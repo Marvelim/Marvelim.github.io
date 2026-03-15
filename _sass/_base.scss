@@ -946,6 +946,13 @@ code {
   word-wrap: break-word;
 }
 
+// Keep multiline code blocks from collapsing into a single line.
+pre code {
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
 // Transitioning Themes
 html.transition,
 html.transition *,
