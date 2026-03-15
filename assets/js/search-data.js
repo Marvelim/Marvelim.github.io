@@ -44,15 +44,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-我的第一篇公式博客",
+        },{id: "post-computer-networks-lab-1",
         
-          title: "我的第一篇公式博客",
+          title: "Computer Networks Lab 1",
         
-        description: "用 Markdown + LaTeX 写一篇技术笔记",
+        description: "计算机网络（春季）Lab 1 Solution",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/my-first-math-post/";
+            window.location.href = "/blog/2026/computer-networks-lab-1/";
           
         },
       },{id: "books-the-godfather",
