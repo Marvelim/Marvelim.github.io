@@ -4,8 +4,8 @@ title: Computer Networks Lab 1
 date: 2026-03-15 18:00:00+08:00
 description: 计算机网络（春季）Lab 1 Solution
 password: "cnl1"
-tags: [math, notes]
-categories: [research]
+tags: [computer_networks]
+categories: [courses]
 ---
 
 # HTTP 访问解析
