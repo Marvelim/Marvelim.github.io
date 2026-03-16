@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-计算机网络-春季-第二讲-物理层",
+        },{id: "post-mit-6-s184",
+        
+          title: "Mit 6 S184",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/mit-6-s184/";
+          
+        },
+      },{id: "post-计算机网络-春季-第二讲-物理层",
         
           title: "计算机网络（春季）第二讲：物理层",
         
