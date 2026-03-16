@@ -44,11 +44,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-mit-6-s184",
+        },{id: "post-mit-course-6-s184",
         
-          title: "Mit 6 S184",
+          title: "MIT Course 6.S184",
         
-        description: "",
+        description: "Course note",
         section: "Posts",
         handler: () => {
           

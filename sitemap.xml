@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>Marvelim.github.io/books/the_godfather/</loc>
-<lastmod>2026-03-16T10:51:44+00:00</lastmod>
+<lastmod>2026-03-16T13:35:01+00:00</lastmod>
 </url>
 <url>
 <loc>Marvelim.github.io/news/announcement_1/</loc>
@@ -18,11 +18,11 @@
 </url>
 <url>
 <loc>Marvelim.github.io/blog/2026/mit-6-s184/</loc>
-<lastmod>2026-03-16T00:00:00+00:00</lastmod>
+<lastmod>2026-03-16T10:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>Marvelim.github.io/projects/9_project/</loc>
-<lastmod>2026-03-16T10:51:44+00:00</lastmod>
+<lastmod>2026-03-16T13:35:01+00:00</lastmod>
 </url>
 <url>
 <loc>Marvelim.github.io/</loc>
@@ -44,6 +44,9 @@
 </url>
 <url>
 <loc>Marvelim.github.io/blog/tag/computer-networks/</loc>
+</url>
+<url>
+<loc>Marvelim.github.io/blog/tag/generative/</loc>
 </url>
 <url>
 <loc>Marvelim.github.io/blog/category/courses/</loc>
