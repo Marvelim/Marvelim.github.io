@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-computer-networks-lab-1",
+        },{id: "post-计算机网络-春季-第二讲-物理层",
+        
+          title: "计算机网络（春季）第二讲：物理层",
+        
+        description: "计算机网络（春季）第二讲：物理层 课程笔记",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/computer-networks-physics/";
+          
+        },
+      },{id: "post-computer-networks-lab-1",
         
           title: "Computer Networks Lab 1",
         
