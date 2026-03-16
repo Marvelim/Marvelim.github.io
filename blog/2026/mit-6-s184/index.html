@@ -147,10 +147,10 @@ X_0 &amp; =x_0
 \end{aligned}
 \end{equation}</p>
 <p>一个<strong>流</strong> $\psi$ 是从指定的一点 $x_0$ 到上述轨迹的映射，可以看作是一个可以直接吐出来“轨迹是什么”的函数：</p>
-\[\psi: \mathbb{R}^d \times[0,1] \mapsto \mathbb{R}^d, \quad\left(x_0, t\right) \mapsto \psi_t\left(x_0\right) \\
-\begin{aligned}
-\frac{\mathrm{d}}{\mathrm{~d} t} \psi_t\left(x_0\right) &amp; =u_t\left(\psi_t\left(x_0\right)\right) \\
-\psi_0\left(x_0\right) &amp; =x_0
+\[\begin{aligned}
+\psi : \mathbb{R}^d \times[0,1] \mapsto \mathbb{R}^d&amp; , \quad (x_0,t) \mapsto \psi_t(x_0) \\
+\frac{\mathrm{d}}{\mathrm{~d} t} \psi_t(x_0) &amp;= u_t(\psi_t(x_0)) \\
+\psi_0(x_0) &amp;= x_0
 \end{aligned}\]
 <p>总结一下：ODE $u$ 的解是一条路径 $X$, 而 $\psi$ 是 $x_0 \to X$ 的 mapping. 正如下图所示，$\psi$ 的移动实际上符合 $u_t$:</p>
 <p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260316191317686.png" alt=""></p>
@@ -181,6 +181,23 @@ X_0 &amp; =x_0
 <p>在这个表达式中添加布朗运动后：</p>
 \[X_{t+h}=X_t+\underbrace{h u_t\left(X_t\right)}_{\text {deterministic }}+\sigma_t \underbrace{\left(W_{t+h}-W_t\right)}_{\text {stochastic }}+\underbrace{h R_t(h)}_{\text {error term }}\]
 <p>其中 $\sigma_t$ 控制了随机项的强度。</p>
+<p><strong>解 SDE</strong>: 上述过程实际上是用 Euler-Maruyama Method 来解的，人话是利用 $W_{t+h} - W_t$ 服从正态分布的性质：</p>
+\[X_{t+h}=X_t+h u_t\left(X_t\right)+\sqrt{h} \sigma_t \epsilon_t, \quad \epsilon_t \sim \mathcal{N}\left(0, I_d\right)\]
+<h3 id="diffusion-model-是什么">Diffusion Model 是什么</h3>
+<p>一个扩散模型实际上就是 $u_t^{\theta}$ 和 noise schedule $\sigma_t$ 的组合（sample 过程如上），类比 Flow Model.</p>
+<h1 id="flow-matching">Flow Matching</h1>
+<p>这一章主要聚焦于，该如何训练 Flow Model $u_t^{\theta}$. 这里有一点小巧思：就是 $u_t^{\theta}$ 的作用，实际上是一个分布上从 $p_{\text{init}}$ 到 $p_{\text{data}}$ 的 “warping” 过程。如果能够定义出中间分布，也就是 $t$ 时刻的概率分布，或许对 $u$ 的训练是一件好事。</p>
+<h2 id="概率路径">概率路径</h2>
+<p>为此，我们定义<strong>概率路径</strong>。对数据点 $z \in \mathbb{R}^{d}$, 可以想象的是，可以构造出一条条件概率路径 $p_t(x \mid z)$（换句话说，就是对不同的 $t$ 都有一个 condition $z$ 的条件分布），满足</p>
+\[p_0(\cdot \mid z) = p_{\text{init}}, \quad p_1 (\cdot \mid z) = \delta_z \quad \forall z \in \mathbb{R}^{d}\]
+<p>也就是说这个条件概率路径可以看作是分布上的一个轨迹，可以逐渐的把初始分布 $p_{\text{init}}$ 调整为一个单点分布 $\delta_z$. 下方的图，第一行就显示了一条条件概率路径：</p>
+<p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260316231041302.png" alt=""></p>
+<p>从图里可以看到，如果对不同的条件概率路径做带权综合，可以设计一个初始分布和数据分布的分布插值。这个分布插值其实就是<strong>边际概率路径</strong>，就是考虑所有的 $z$ 之后的综合：</p>
+\[p_t(x) = \int_{z} p_t(x \mid z) p_{\text{data}} (z) dz\]
+<h2 id="条件--边际向量场">条件 &amp; 边际向量场</h2>
+<p>如果构造出了上面的一个条件概率路径，能不能构造一个对应的 ODE, 满足时刻都固定这个条件概率分布呢？也就是</p>
+\[X_0 \sim p_{\text {init }}, \quad \frac{\mathrm{d}}{\mathrm{~d} t} X_t=u_t^{\text {target }}\left(X_t \mid z\right) \quad \Rightarrow \quad X_t \sim p_t(\cdot \mid z) \quad(0 \leq t \leq 1) .\]
+<p>乍一看这个 ODE 没啥用。</p>
 </div>
 </article>
 <br>
