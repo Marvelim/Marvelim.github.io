@@ -987,6 +987,12 @@ html.transition *:after {
   }
 }
 
+// Ensure post images do not exceed the text column width.
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 progress {
   /* Positioning */
   position: fixed;
