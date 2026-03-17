@@ -1,6 +1,12 @@
 window.MathJax = {
   tex: {
     tags: "ams",
+    processEnvironments: true,
+    processEscapes: true,
+    displayMath: [
+      ["$$", "$$"],
+      ["\\[", "\\]"],
+    ],
     inlineMath: [
       ["$", "$"],
       ["\\(", "\\)"],
