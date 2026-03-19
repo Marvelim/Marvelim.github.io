@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-mit-course-6-s184",
+        },{id: "post-discrete-diffusion-models",
+        
+          title: "Discrete Diffusion Models",
+        
+        description: "MIT 6.S184 bonus",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/mit-6-s184/";
+          
+        },
+      },{id: "post-mit-course-6-s184",
         
           title: "MIT Course 6.S184",
         
