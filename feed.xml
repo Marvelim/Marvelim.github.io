@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="Marvelim.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="Marvelim.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-03-20T10:12:00+00:00</updated><id>Marvelim.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="Marvelim.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="Marvelim.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-03-20T10:32:19+00:00</updated><id>Marvelim.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 </subtitle><entry><title type="html">MIT Course 6.S184</title><link href="Marvelim.github.io/blog/2026/mit-6-s184/" rel="alternate" type="text/html" title="MIT Course 6.S184"/><published>2026-03-16T10:00:00+00:00</published><updated>2026-03-16T10:00:00+00:00</updated><id>Marvelim.github.io/blog/2026/mit-6-s184</id><content type="html" xml:base="Marvelim.github.io/blog/2026/mit-6-s184/"><![CDATA[<h1 id="flow-model-和-diffusion-model">Flow Model 和 Diffusion Model</h1>
 <h2 id="flow-model">Flow Model</h2>
 <h3 id="前置知识-ode">前置知识: ODE</h3>
@@ -53,7 +53,7 @@ X_0 &amp; =x_0
 \[X_{t+h}=X_t+\underbrace{h u_t\left(X_t\right)}_{\text {deterministic }}+\sigma_t \underbrace{\left(W_{t+h}-W_t\right)}_{\text {stochastic }}+\underbrace{h R_t(h)}_{\text {error term }}\]
 <p>其中 $\sigma_t$ 控制了随机项的强度。写成连续形式是</p>
 \[d X_t=u_t\left(X_t\right) d t+\sigma_t d W_t\]
-<p>其中，$u_t(X_t)$ 被叫做 <strong>diffusion coefficient</strong>，$\sigma_t$ 被叫做 <strong>drift coefficient</strong>.</p>
+<p>其中，$u_t(X_t)$ 被叫做 <strong>drift coefficient</strong>，$\sigma_t$ 被叫做 <strong>diffusion coefficient</strong>.</p>
 <p><strong>SDE 的采样</strong>: 使用 Euler-Maruyama Method 进行离散采样，核心是利用 $W_{t+h} - W_t$ 服从正态分布的性质，可以离散的写成：</p>
 \[X_{t+h}=X_t+h u_t\left(X_t\right)+\sqrt{h} \sigma_t \epsilon_t, \quad \epsilon_t \sim \mathcal{N}\left(0, I_d\right)\]
 <p><strong>Diffusion Model 的定义</strong> 一个 Diffusion Model 是一组 $(u_t^{\theta}, { \sigma_t })$，类比 Flow Model.</p>
