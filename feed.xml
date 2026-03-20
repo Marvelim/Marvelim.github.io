@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="Marvelim.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="Marvelim.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-03-19T07:36:00+00:00</updated><id>Marvelim.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">MIT Course 6.S184</title><link href="Marvelim.github.io/blog/2026/mit-6-s184/" rel="alternate" type="text/html" title="MIT Course 6.S184"/><published>2026-03-16T10:00:00+00:00</published><updated>2026-03-16T10:00:00+00:00</updated><id>Marvelim.github.io/blog/2026/mit-6-s184</id><content type="html" xml:base="Marvelim.github.io/blog/2026/mit-6-s184/"><![CDATA[<h1 id="flow-and-diffusion-models">Flow and Diffusion Models</h1>
-<h2 id="flow-models">Flow Models</h2>
-<h3 id="preliminaries-ode">Preliminaries: ODE</h3>
-<p><strong>ODE</strong>: 一个 ODE 被一个和 <strong>时间</strong> 相关的 <strong>向量场</strong> $u$ 定义，其中 $u_t(x)$ 接收“我们的坐标 $x$”和“当前时间 $t$“，吐出一个应当走的方向 $u_t(x)$:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="Marvelim.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="Marvelim.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-03-20T10:12:00+00:00</updated><id>Marvelim.github.io/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">MIT Course 6.S184</title><link href="Marvelim.github.io/blog/2026/mit-6-s184/" rel="alternate" type="text/html" title="MIT Course 6.S184"/><published>2026-03-16T10:00:00+00:00</published><updated>2026-03-16T10:00:00+00:00</updated><id>Marvelim.github.io/blog/2026/mit-6-s184</id><content type="html" xml:base="Marvelim.github.io/blog/2026/mit-6-s184/"><![CDATA[<h1 id="flow-model-和-diffusion-model">Flow Model 和 Diffusion Model</h1>
+<h2 id="flow-model">Flow Model</h2>
+<h3 id="前置知识-ode">前置知识: ODE</h3>
+<p><strong>ODE 的定义与解</strong> 一个 ODE 被一个和 <strong>时间</strong> 相关的 <strong>向量场</strong> $u$ 定义，其中 $u_t(x)$ 接收“当前坐标 $x$”和“当前时间 $t$“，吐出应当走的方向 $u_t(x)$:</p>
 \[u: \mathbb{R}^d \times[0,1] \rightarrow \mathbb{R}^d, \quad(x, t) \mapsto u_t(x),\]
 <p>该 ODE 的解是一条<strong>轨迹</strong> $X$:</p>
 \[X:[0,1] \rightarrow \mathbb{R}^d, \quad t \mapsto X_t\]
-<p>该轨迹是在 ODE 上走的，因此：</p>
+<p>该轨迹是在 ODE 上走的，因此满足</p>
 \[\begin{aligned}
 \frac{\mathrm{d}}{\mathrm{~d} t} X_t &amp; =u_t\left(X_t\right) \\
 X_0 &amp; =x_0
@@ -20,15 +20,15 @@ X_0 &amp; =x_0
 \end{aligned}\]
 <p>若直接对不同的 $t$ 输出空间中 $\psi_t$，可以较为直观的看到其“运动”是遵循 $u_t$ 的：</p>
 <p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260316191317686.png" alt=""/></p>
-<p><strong>解 ODE</strong>: 多数情况下 $\psi_t$ 是没有封闭形式的，只能把这条轨迹离散采样出来，例如对式 \eqref{eq:ode} 使用 Euler 法</p>
+<p><strong>ODE 的采样</strong>: 对式 \eqref{eq:ode} 使用 Euler 法可以将 ${ X_t }$ 进行离散采样：</p>
 \[X_{t + h} = X_t + hu_t(X_t)\]
-<p><strong>Flow Model 是</strong> 一个神经网络向量场 $u_t^{\theta}$, 满足：</p>
+<p><strong>Flow Model 的定义</strong> 一个 Flow Model 是一个神经网络向量场 $u_t^{\theta}$, 满足：</p>
 <ul>
 <li>当 $X_0 \sim p_{\text{init}}$ 时，按该向量场采样得到的 $X_1 \sim p_{\text{data}}$.</li>
 </ul>
 <p>若能构造出这样的向量场，从源分布中采样一个 $X_0$ 后模拟得到 $X_1$ 即可完成从 $p_{\text{data}}$ 中采样的目的。</p>
 <h2 id="diffusion-model">Diffusion Model</h2>
-<h3 id="preliminaries-sde">Preliminaries: SDE</h3>
+<h3 id="前置知识-sde">前置知识: SDE</h3>
 <p>SDE 中引入的随机性可以用布朗运动来建模：一个布朗运动 $W = (W_t)_{0 \leq t \leq 1}$ 是一个随机过程，满足：</p>
 <ol>
 <li>
@@ -41,9 +41,11 @@ X_0 &amp; =x_0
 <p>对任何分割 $0 \leq t_0 &lt; t_1 &lt; \ldots &lt; t_n \leq 1$, $W_{t_1 - t_0}, \ldots, W_{t_n - t_{n-1}}$ 是独立的随机变量。</p>
 </li>
 </ol>
-<p>布朗运动又被叫做维纳过程。如果按下面的流程进行离散模拟，那么就可以“近似“为一个满足上述条件的布朗运动：</p>
+<p>布朗运动又被叫做维纳过程。幸运的是，如果按下面的流程进行离散模拟，那么就可以“近似“为一个满足上述条件的布朗运动：</p>
 \[W_{t + h} = W_t + \sqrt {h} \epsilon_t, \epsilon_t \sim \mathcal{N}(0, I_d)\]
-<p><strong>ODE $\to$ SDE</strong> 如果要在 ODE 中引入上述随机性，首先不能求导了，需要一个离散的解释。对 \eqref{eq:ode} 可以改写为</p>
+<p>大概效果如同</p>
+<p><img src="image-1.png" alt="Brownian Motion"/></p>
+<p><strong>ODE $\to$ SDE</strong> 如果要在 ODE 中引入上述随机性，首先求导不能用了，需要一个离散的解释。对 \eqref{eq:ode} 可以改写为</p>
 \[\frac{1}{h}(X_{t + h} - X_t)  =u_t\left(X_t\right) + R_t(h)\]
 <p>只需要多出来的一个项可以忽略：$R_t(h) \to 0 (h \to 0)$. 这样 reformat 可以得到</p>
 \[X_{t + h} = X_t + hu_t(X_t) + hR_t(h)\]
@@ -52,33 +54,41 @@ X_0 &amp; =x_0
 <p>其中 $\sigma_t$ 控制了随机项的强度。写成连续形式是</p>
 \[d X_t=u_t\left(X_t\right) d t+\sigma_t d W_t\]
 <p>其中，$u_t(X_t)$ 被叫做 <strong>diffusion coefficient</strong>，$\sigma_t$ 被叫做 <strong>drift coefficient</strong>.</p>
-<p><strong>解 SDE</strong>: 使用 Euler-Maruyama Method 进行离散采样，核心是利用 $W_{t+h} - W_t$ 服从正态分布的性质，可以离散的写成：</p>
+<p><strong>SDE 的采样</strong>: 使用 Euler-Maruyama Method 进行离散采样，核心是利用 $W_{t+h} - W_t$ 服从正态分布的性质，可以离散的写成：</p>
 \[X_{t+h}=X_t+h u_t\left(X_t\right)+\sqrt{h} \sigma_t \epsilon_t, \quad \epsilon_t \sim \mathcal{N}\left(0, I_d\right)\]
-<p><strong>Diffusion Model</strong> 是： $(u_t^{\theta}, { \sigma_t })$，类比 Flow Model.</p>
-<h1 id="flow-matching">Flow Matching</h1>
-<p>这一章主要聚焦于，该如何训练满足上述要求的 Flow Model $u_t^{\theta}$.</p>
-<p>这一段的思路是：$u_t^{\theta}$ 的作用，实际上是一个分布上从 $p_{\text{init}}$ 到 $p_{\text{data}}$ 的 “warping” 过程。如果能够定义出中间分布，也就是 $t$ 时刻的概率分布，或许可以为 $u$ 的形式提供一个中介，从而帮助 $u$ 的训练。</p>
-<h2 id="概率路径">概率路径</h2>
-<p>为此，我们定义<strong>概率路径</strong>。对数据点 $z \in \mathbb{R}^{d}$, 可以想象的是，可以构造出一条条件概率路径 $p_t(x \mid z)$（换句话说，就是对不同的 $t$ 都有一个 condition $z$ 的条件分布），满足</p>
+<p><strong>Diffusion Model 的定义</strong> 一个 Diffusion Model 是一组 $(u_t^{\theta}, { \sigma_t })$，类比 Flow Model.</p>
+<h1 id="流匹配">流匹配</h1>
+<p>那么，该如何训练满足上述要求的 Flow Model $u_t^{\theta}$ 呢？</p>
+<p>可以发现直接建模 “从 $p_{\text{init}}$ 走到 $p_{\text{data}}$” 是较为困难的，需要在中间过程想象 $u_t$ “发生了什么” 才可以精细化的设计 $u_t$. 为此，可以想象粒子从 $\text{init}$ 逐渐走向 $\text{data}$ 的路径，和其中间所经历的<strong>概率分布</strong>。下面会逐渐发现，这一概率分布会直接让 $u_t$ 的计算和训练成为可能。</p>
+<h2 id="工具概率路径">工具：概率路径</h2>
+<p>我们定义<strong>概率路径</strong>这一概念。</p>
+<p><strong>条件概率路径</strong> 先固定一个数据点 $z \in p_{\text{data}}$, 可以想象的是，可以构造出一条<strong>条件概率路径</strong> $p_t(x \mid z)$（换句话说，就是对不同的 $t$ 都有一个 condition $z$ 的条件分布），满足</p>
 \[p_0(\cdot \mid z) = p_{\text{init}}, \quad p_1 (\cdot \mid z) = \delta_z \quad \forall z \in \mathbb{R}^{d}\]
 <p>也就是说这个条件概率路径可以看作是分布上的一个轨迹，可以逐渐的把初始分布 $p_{\text{init}}$ 调整为一个单点分布 $\delta_z$. 下方的图，第一行就显示了一条条件概率路径：</p>
 <p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260316231041302.png" alt=""/></p>
-<p>从图里可以看到，如果对不同的条件概率路径做带权综合，可以设计一个初始分布和数据分布的分布插值。这个分布插值其实就是<strong>边际概率路径</strong>，就是考虑所有的 $z$ 之后的综合：</p>
+<p><strong>边际概率路径</strong> 如果按 $p_{\text{data}}(z)$ 这一分布“综合”上面的条件概率路径会发生什么？</p>
 \[p_t(x) = \int_{z} p_t(x \mid z) p_{\text{data}} (z) dz\]
-<p>如果我们能够设计一个边际向量场，满足按这个向量场走之后，对每时刻 $t$ 都恰好符合分布 $p_t$，那么这个向量场就可以完成 $p_{\text{init}} \to p_{\text{data}}$ 的转化了。</p>
+<p>这一分布满足 $p_0 = p_{\text{init}}, p_1 = p_{\text{data}}$. 因此，如果能够设计一个边际向量场，满足按这个向量场走之后，对每时刻 $t$，随机变量 $X_t$ 都恰好符合分布 $p_t$，那么这个向量场就可以完成 $p_{\text{init}} \to p_{\text{data}}$ 的转化了。</p>
 <h2 id="条件--边际向量场">条件 &amp; 边际向量场</h2>
 <p>如果构造出了上面的一个条件概率路径，能不能构造一个对应的 ODE $u_t^{\text{target}} (\cdot \mid z)$, 满足若 $X_0$ 从初始分布中采样，则 $X_t$ 时刻服从条件概率路径在 $t$ 时刻的分布呢？也就是</p>
 \[X_0 \sim p_{\text {init }}, \quad \frac{\mathrm{d}}{\mathrm{~d} t} X_t=u_t^{\text {target }}\left(X_t \mid z\right) \quad \Rightarrow \quad X_t \sim p_t(\cdot \mid z) \quad(0 \leq t \leq 1) .\]
 <p>这个 ODE 完成的是 $p_{\text{init}} \to \delta_z$ 的转化，有什么用呢？事实上，借用下面的 <strong>边际化技巧</strong>，可以得到我们所需要的边际向量场和上面的条件向量场之间的关系：</p>
 <blockquote>
-<p><strong>边际化技巧</strong>：定义 \(u_t^{\text {target }}(x)=\int u_t^{\text {target }}(x \mid z) \frac{p_t(x \mid z) p_{\text {data }}(z)}{p_t(x)} \mathrm{d} z,\)，这个向量场满足</p>
+<p><strong>边际化技巧</strong>：定义 \(\begin{aligned} u_t^{\text {target }}(x)&amp;=\int u_t^{\text {target }}(x \mid z) \frac{p_t(x \mid z) p_{\text {data }}(z)}{p_t(x)} \mathrm{d} z \\ &amp;= \mathbb{E}_{z \sim p_{\text{data}}(\cdot \mid x)} [ u_t^{\text{target}}(x \mid z)] \end{aligned} \tag{2} \label{eq:margin}\)，这个向量场满足<br/>
+\(\begin{aligned}
+X_0 \sim p_{\text {init }}, \quad \frac{\mathrm{d}}{\mathrm{~d} t} X_t=u_t^{\operatorname{target}}\left(X_t\right) \quad \Rightarrow \quad X_t \sim p_t \quad(0 \leq t \leq 1) .
+\end{aligned}\)</p>
 </blockquote>
-\[X_0 \sim p_{\text {init }}, \quad \frac{\mathrm{d}}{\mathrm{~d} t} X_t=u_t^{\operatorname{target}}\left(X_t\right) \quad \Rightarrow \quad X_t \sim p_t \quad(0 \leq t \leq 1) .\]
-<h2 id="例高斯形式推导">例：高斯形式推导</h2>
-<p>若 $p_{\text{init}} = \mathcal{N}(0, I_d)$，则对一个数据点 $z$, 可以构造 $p_t(\cdot \mid z): \mathcal{N}(\alpha_t z, \beta_t^2 I_d)$. 如果满足 $\alpha_0 = \beta_1 = 0, \alpha_1 = \beta_0 = 1$, 那么上述分布就满足 $p_0(\cdot \mid z) = \mathcal{N}(0, I_d), p_1(\cdot \mid z) = \mathcal{N}(z, 0) = \delta_z$，从而就是我们需要的条件概率路径。</p>
-<p>有了上述条件概率路径后，下一步就是去试图构造 $u_t^{\text{target}}(x \mid z)$ 了. 这部分的逻辑是这样的：我们试图先构造出 $X_t = \psi_t(X_0 \mid z)$ 应当满足的形式，再对其关于 $t$ 求导，就可以求得向量场的形式了。<del>瞪眼可得</del></p>
+<p>这一技巧的证明较为复杂，这里略过。但若是注意到</p>
+\[\frac{p_t(x \mid z) p_{\text {data }}(z)}{p_t(x)} = p_{\text{data}} (z \mid x)\]
+<p>也就是实际上 $u_t^{\text{target}}(x)$ 是 $u_t^{\text{target}}(x \mid z)$ 按 $p_{\text{data}}(z \mid x)$ 的【加权平均】（或者说是”期望“），就可以在直观意义上理解这个式子。（内心戏：对 $x$ 先猜“可能的 $z$ 是什么“，对最可能的 $z$ 用多一点 $u_t(x \mid z)$）</p>
+<p>这一技巧的重要性在于，只要构造出 $u_t^{\text{target}}(x \mid z)$, 就相当于变相知道了 $u_t^{\text{target}}(x)$ 是什么。因此，对一般的概率分布间的转化，可以遵循 <strong>先建模条件概率路径，后建模条件向量场</strong> 的两步走策略先算出一些量出来。实践一下：</p>
+<h2 id="例题-1-p_textinit--mathcaln0-i_d--p_textdata">例题 1: $p_{\text{init}} = \mathcal{N}(0, I_d),\  p_{\text{data}}$</h2>
+<p><strong>条件概率路径</strong> 若 $p_{\text{init}} = \mathcal{N}(0, I_d)$，则对一个数据点 $z$, 可以构造 $p_t(\cdot \mid z): \mathcal{N}(\alpha_t z, \beta_t^2 I_d)$. 若满足 $\alpha_0 = \beta_1 = 0, \alpha_1 = \beta_0 = 1$, 那么上述分布就满足 $p_0(\cdot \mid z) = \mathcal{N}(0, I_d), p_1(\cdot \mid z) = \mathcal{N}(z, 0) = \delta_z$，从而就是所需的条件概率路径。</p>
+<p><strong>条件概率路径 $\to$ 条件流</strong> 在试图构造 $u_t^{\text{target}}(x \mid z)$ 之前，可以试图先构造出 $X_t = \psi_t(X_0 \mid z)$ 应当满足的形式。这样的话，对其关于 $t$ 求导，就可以求得向量场的形式了。<del>瞪眼可得</del></p>
 \[\psi_t^{\text{target}}(x \mid z) = \alpha_t x + \beta_t z\]
-<p>该流恰好满足了在任何时刻 $t$, 随机变量 $X_t$ 都服从 $p_t^{\text{target}}(x \mid z)$. 因此说不定直接对这个形式求导，就可以得到 $u_t^{\text{target}}(x \mid z)$ 的形式：</p>
+<p>该流恰好满足了在任何时刻 $t$, 随机变量 $X_t$ 都服从 $p_t^{\text{target}}(x \mid z)$.</p>
+<p><strong>条件向量场</strong> 对上式关于 $t$ 求导并化简，就可以得到 $u_t^{\text{target}}(x \mid z)$ 的形式：</p>
 \[\begin{aligned}
 &amp; \frac{\mathrm{d}}{\mathrm{~d} t} \psi_t^{\text {target }}(x \mid z)=u_t^{\text {target }}\left(\psi_t^{\text {target }}(x \mid z) \mid z\right) \quad \text { for all } x, z \in \mathbb{R}^d \\
 &amp; \stackrel{(i)}{\Leftrightarrow} \quad \dot{\alpha}_t z+\dot{\beta}_t x=u_t^{\text {target }}\left(\alpha_t z+\beta_t x \mid z\right) \quad \text { for all } x, z \in \mathbb{R}^d \\
@@ -87,22 +97,23 @@ X_0 &amp; =x_0
 \end{aligned}\]
 <p>其中 $\dot{\alpha}_t = \partial_t \alpha_t, \dot{\beta}_t = \partial_t \beta_t$. 从而就得到了条件向量场：</p>
 \[u_t^{\text {target }}(x \mid z)=\left(\dot{\alpha}_t-\frac{\dot{\beta}_t}{\beta_t} \alpha_t\right) z+\frac{\dot{\beta}_t}{\beta_t} x\]
-<p>上面的推导中并没有用到 $p_{\text{data}}$ 的任何信息（因为此处算的仅仅是“条件”），而这个信息在定义边际概率路径与边际向量场中是必要的。</p>
-<h2 id="例直线形式推导">例：直线形式推导</h2>
-<p>如果初始分布不为高斯，而是任意分布 $p_{\text{simple}}$, 一样可以构造出其和 $p_{\text{data}}$ 中的条件概率路径。只不过这个条件概率路径 $p_t(x \mid z)$ 的定义不是显式的：定义 $X_t = (1-t)X_0 + tz$, 那么 $X_t$ 满足的分布自然就是 $p_t (x \mid z)$. 也就是说流的形式是 $\psi_t^{\text{target}}(x \mid z) = (1-t)x + tz$.</p>
+<p>值得提及的是，上面的推导中并没有用到 $p_{\text{data}}$ 的任何信息（因为此处算的仅仅是“条件”），而这个信息在定义边际概率路径与边际向量场中是必要的。</p>
+<h2 id="例题-2-p_textsimple-p_textdata">例题 2: $p_{\text{simple}}, p_{\text{data}}$</h2>
+<p><strong>条件概率路径</strong> 如果初始分布是<strong>任意</strong>分布 $p_{\text{simple}}$, 一样可以构造出其和 $p_{\text{data}}$ 中的条件概率路径。只不过这个条件概率路径 $p_t(x \mid z)$ 的定义不是显式的：定义 $X_t = (1-t)X_0 + tz$, 那么 $X_t$ 满足的分布自然就是 $p_t (x \mid z)$. 也就是说流的形式是 $\psi_t^{\text{target}}(x \mid z) = (1-t)x + tz$.</p>
 <p>对这个项关于 $t$ 求导为 $z - x$，而这个值应当等于 $u_t^{\text{target}}((1-t)x + tz \mid z)$. 因此做换元 $x’ = (1 - t)x + tz$, 可以得到</p>
 \[u_t^{\text{target}}(x' \mid z) = z - \frac{x' - tz}{1 - t} = \frac{z - x'}{1 - t} ( = z-x)\]
-<p>直接对这个目标做 Flow Matching 就是 Rectified Flow 了，同时这也说明 Rectified Flow 并不依赖初始分布的形态和性质。</p>
+<p>此例中是先建模条件流，后通过条件流建模条件概率路径。这说明概率路径和流本质是非常相关的。</p>
+<p>（直接对这个目标做 Flow Matching 就是 Rectified Flow 了，同时这也说明 Rectified Flow 并不依赖初始分布的形态和性质。）</p>
 <h2 id="学习边际向量场">学习边际向量场</h2>
-<p>上面的推导告诉我们，事实上 $u_t^{\text{target}} (x)$ 是可以由条件向量场“加权平均”得到的。而 Flow Model 只包含 $u_t^{\theta}$ 的话，目标就是让 $u_t^{\theta} \approx u_t^{\text{target}}$. 可以定义损失函数为：</p>
+<p>回到主线。<strong>边际化技巧</strong> \eqref{eq:margin} 说明，$u_t^{\text{target}} (x)$ 是可以由条件向量场“加权平均”得到的。而 Flow Model 的训练目标就是让 $u_t^{\theta} \approx u_t^{\text{target}}$. 因此可以定义损失函数为：</p>
 \[\begin{aligned}
 \mathcal{L}_{\mathrm{FM}}(\theta) &amp; =\mathbb{E}_{t \sim \text { Unif }, x \sim p_t}\left[\left\|u_t^\theta(x)-u_t^{\text {target }}(x)\right\|^2\right] \\
 &amp; \stackrel{(i)}{=} \mathbb{E}_{t \sim \text { Unif }, z \sim p_{\text {data }}, x \sim p_t(\cdot \mid z)}\left[\left\|u_t^\theta(x)-u_t^{\text {target }}(x)\right\|^2\right],
 \end{aligned}\]
 <p>问题来了，$u_t^{\text{target}}(x)$ 是由一个积分定义的，不知道其具体的值怎么办？考虑下面这个形式的 loss, 对比上面的函数是把边际向量场替换为了条件向量场：</p>
 \[\mathcal{L}_{\mathrm{CFM}}(\theta)=\mathbb{E}_{t \sim \mathrm{Unif}, z \sim p_{\text {data }}, x \sim p_t(\cdot \mid z)}\left[\left\|u_t^\theta(x)-u_t^{\text {target }}(x \mid z)\right\|^2\right]\]
-<p>非常巧妙的是，上述两个损失函数的差其实是一个常数，从而二者梯度相等。这说明只要优化下式，就可以达成优化上式的目的。（证明略）</p>
-<p>将上一节中我们得到的 $u_t$ 标准形式代入本节：</p>
+<p>非常巧妙的是，上述两个损失函数的差其实是一个常数，从而二者梯度相等。这说明只要优化下式，就可以达成优化上式的目的。 证明是将 2 范数展开，这里略过。</p>
+<p><strong>例 1</strong> 将上一节中得到的 $u_t$ 高斯标准形式代入本节：</p>
 \[\begin{aligned}
 \mathcal{L}_{\mathrm{CFM}}(\theta) &amp; =\mathbb{E}_{t \sim \mathrm{Unif}, z \sim p_{\mathrm{data}}, x \sim \mathcal{N}\left(\alpha_t z, \beta_t^2 I_d\right)}\left[\left\|u_t^\theta(x)-\left(\dot{\alpha}_t-\frac{\dot{\beta}_t}{\beta_t} \alpha_t\right) z-\frac{\dot{\beta}_t}{\beta_t} x\right\|^2\right] \\
 &amp; \stackrel{(i)}{=} \mathbb{E}_{t \sim \mathrm{Unif}, z \sim p_{\mathrm{data}}, \epsilon \sim \mathcal{N}\left(0, I_d\right)}\left[\left\|u_t^\theta\left(\alpha_t z+\beta_t \epsilon\right)-\left(\dot{\alpha}_t z+\dot{\beta}_t \epsilon\right)\right\|^2\right]
@@ -110,35 +121,37 @@ X_0 &amp; =x_0
 <p>考虑若 $\alpha_t = t, \beta_t = 1 - t$ 则 $\dot{\alpha}_t = 1, \dot{\beta}_t = -1$, 得到的损失函数形式其实就是 Rectified Flow:</p>
 \[\mathcal{L}_{\mathrm{cfm}}(\theta)=\mathbb{E}_{t \sim \mathrm{Unif}, z \sim p_{\text {data }}, \epsilon \sim \mathcal{N}\left(0, I_d\right)}\left[\left\|u_t^\theta(t z+(1-t) \epsilon)-(z-\epsilon)\right\|^2\right]\]
 <p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260317102232349.png" alt=""/></p>
+<p><strong>例 2</strong> 直接代入正常分布之间的条件向量场，会发现同样可以得到 Rectified Flow. 这说明这一工具并不要求初始分布的形式。</p>
 <h2 id="本章总结">本章总结</h2>
 <p>流匹配的目的是学习边际向量场。为此，</p>
 <ul>
-<li>首先定义了条件概率路径和其对应的条件向量场，从概率路径得到向量场是现实的，并且有封闭形式；</li>
+<li>首先定义了条件概率路径和其对应的条件向量场，从概率路径得到向量场是现实的，并（很可能）有封闭形式；</li>
 <li>随后，可以通过条件向量场积分得到边际向量场的形式。</li>
 <li>最后由两个 loss 之间的相互转化，可以发现学习条件向量场 $\approx$ 学习边际向量场，这样就可以写出算法了。</li>
 </ul>
-<h1 id="score-functions-and-score-matching">Score Functions and Score Matching</h1>
-<p>本节讨论如何使用<strong>分数匹配</strong>来训练扩散模型。对分布 $q(x)$, 其 score function 被定义为 $\nabla_x \log q(x)$. 直观上，score function 的朝向对应 $q(x)$ “上升”的方向：</p>
+<h1 id="score-function-and-score-matching">Score Function and Score Matching</h1>
+<p>本节讨论如何使用<strong>score matching</strong>来训练 Diffusion Model（这里实在是觉得 score 不知道翻译成什么好）。对分布 $q(x)$, 其 score function 被定义为 $\nabla_x \log q(x)$. 直观上，score function 中每个点的值对应分布 $q(x)$ 中该点沿分布“上升”的方向：</p>
 <p><img src="https://pic-1301372829.cos.ap-hongkong.myqcloud.com/20260317124100794.png" alt=""/></p>
 <p>对上一节中定义的边际概率路径 $p_t(x)$ 和条件概率路径 $p_t(x \mid z)$, 其 score function 间有如下关系：</p>
 \[\begin{aligned}
 \nabla_x \log p_t(x) &amp;= \frac{1}{p_t(x)} \nabla_x p_t(x) \\
 &amp;= \frac{1}{p_t(x)} \int_z  \nabla_x p_t (x \mid z) p_{\text{data}}(z) dz \\
-&amp;= \int_z \nabla_x \log p_t(x \mid z) \frac{p_t (x \mid z) p_{\text{data}}(z)}{p_t(x)} dz
+&amp;= \int_z \nabla_x \log p_t(x \mid z) \frac{p_t (x \mid z) p_{\text{data}}(z)}{p_t(x)} dz \\
+&amp;= \mathbb{E}_{z \sim p_{\text{data}}(\cdot \mid x)} [\nabla_x \log p_t(x \mid z)]
 \end{aligned}\]
-<p>对比一下条件向量场和边际向量场的关系，会发现形式上的一致性。</p>
-<h2 id="例高斯形式推导-1">例：高斯形式推导</h2>
+<p>对比一下 <strong>边际化技巧</strong> \eqref{eq:margin}，会发现形式上的一致性。</p>
+<h2 id="例p_textinit--mathcaln0-i_d--p_textdata">例：$p_{\text{init}} = \mathcal{N}(0, I_d),\  p_{\text{data}}$</h2>
 <p>上面讨论过的 $p_t(x \mid z): \mathcal{N}(\alpha_t z, \beta_t^2 I_d)$, 由正态分布概率公式可以得到</p>
 \[\nabla \log p_t(x \mid z)=\nabla \log \mathcal{N}\left(x ; \alpha_t z, \beta_t^2 I_d\right)=-\frac{x-\alpha_t z}{\beta_t^2}\]
-<p>可以发现关于 $x, z$ 都是线性的，这与之前得到的条件向量场是匹配的（即，也是线性）。下面的性质告诉我们：得到了 score function 等价于 得到对应的向量场</p>
+<p>可以发现关于 $x, z$ 都是线性的，这与之前得到的条件向量场是匹配的（即，也是线性）。下面的性质说：<strong>在 gaussian 概率分布下，</strong> 得到了 score function $\Leftrightarrow$ 得到对应的向量场</p>
 \[\begin{aligned} u_t^{\text {target }}(x \mid z) &amp; =a_t \nabla \log p_t(x \mid z)+b_t x, \quad a_t=\left(\beta_t^2 \frac{\dot{\alpha}_t}{\alpha_t}-\dot{\beta}_t \beta_t\right), \quad b_t=\frac{\dot{\alpha}_t}{\alpha_t} \\ u_t^{\text {target }}(x) &amp; =a_t \nabla \log p_t(x)+b_t x .\end{aligned}\]
-<p>下面的性质告诉我们，学习一个去噪器（即：预测最后的干净数据的期望）和学习 $u_t^{\text{target}}$ 也是等价的：</p>
+<p>下面的性质也说明，此时学习一个去噪器（即：预测最后的干净数据的期望）和学习 $u_t^{\text{target}}$ 也是等价的：</p>
 \[D_t(x \mid z)=z, \quad D_t(x)=\int z \frac{p_t(x \mid z) p_{\text {data }}(z)}{p_t(x)} \mathrm{d} z \stackrel{(i)}{=} \frac{1}{\dot{\alpha}_t \beta_t-\alpha_t \dot{\beta}_t}\left(\beta_t u_t^{\text {target }}\left(x_t\right)-\dot{\beta}_t x_t\right)\]
-<p><strong>SDE 采样</strong>. 之前讨论过如何在 Flow Model 向量场上采样，那么 SDE 应当如何采样？下面的式子说明，可以通过引入随机性<strong>但不改变边际分布</strong>的方式，达成这一目的：</p>
-\[X_0 \sim p_{\text {init }},\begin{aligned} \mathrm{d} X_t &amp; =u_t^{\text {target }}\left(X_t\right) \mathrm{d} t+\frac{\sigma_t^2}{2} \nabla \log p_t\left(X_t\right) \mathrm{d} t+\sigma_t \mathrm{~d} W_t \\ &amp; =\left[u_t^{\text {target }}\left(X_t\right)+\frac{\sigma_t^2}{2} \nabla \log p_t\left(X_t\right)\right] \mathrm{d} t+\sigma_t \mathrm{~d} W_t \\ \Rightarrow \quad X_t \sim p_t(0 \leq t \leq 1) . &amp; \end{aligned}\]
-<p>特别地，对 Gaussian 概率路径，有如下形式：</p>
+<p><strong>SDE 采样</strong>. SDE 应当不改变边际概率路径。幸运的是，下面的<strong>转化引理</strong>（名字我自己编的），可以通过引入随机性<strong>但不改变边际概率路径</strong>的方式，达成这一目的：对 $X_0 \sim p_{\text {init }}$,</p>
+\[\begin{aligned} \mathrm{d} X_t &amp; =u_t^{\text {target }}\left(X_t\right) \mathrm{d} t+\frac{\sigma_t^2}{2} \nabla \log p_t\left(X_t\right) \mathrm{d} t+\sigma_t \mathrm{~d} W_t \\ &amp; =\left[u_t^{\text {target }}\left(X_t\right)+\frac{\sigma_t^2}{2} \nabla \log p_t\left(X_t\right)\right] \mathrm{d} t+\sigma_t \mathrm{~d} W_t \\ &amp;\Rightarrow \quad X_t \sim p_t(0 \leq t \leq 1) . &amp; \end{aligned}\]
+<p>特别地，对 Gaussian 概率路径，由于 score function 和向量场之间可以互相转化，因此只需要 score 即可，有如下形式：</p>
 \[\begin{aligned} &amp; X_0 \sim p_{\text {init }}, \quad \mathrm{d} X_t=\left[\left(a_t+\frac{\sigma_t^2}{2}\right) \nabla \log p_t\left(X_t\right)+b_t X_t\right] \mathrm{d} t+\sigma_t \mathrm{~d} W_t \\ \Rightarrow &amp; X_t \sim p_t \quad(0 \leq t \leq 1)\end{aligned}\]
-<p>使用 Euler-Maruyama Method 进行离散采样即可。</p>
+<p>对一般情况，（可能）还是需要同时拟合 score 和向量场。拟合完毕后，使用 Euler-Maruyama Method 进行离散采样即可。</p>
 <h2 id="score-matching">Score Matching</h2>
 <p>上面一节说明了，对 Gaussian 概率路径，score function 和向量场是可以相互转化的。对其他情况，当然也可以设计一个神经网络 $s_t^{\theta}: \mathbb{R}^{d} \times [0, 1] \to \mathbb{R}^{d}$, 然后用以下两个损失函数来训练：</p>
 \[\begin{aligned} \mathcal{L}_{\mathrm{SM}}(\theta) &amp; =\mathbb{E}_{t \sim \text { Unif, } z \sim p_{\text {data }}, x \sim p_t(\cdot \mid z)}\left[\left\|s_t^\theta(x)-\nabla \log p_t(x)\right\|^2\right] \\ \mathcal{L}_{\mathrm{CSM}}(\theta) &amp; =\mathbb{E}_{t \sim \text { Unif, } z \sim p_{\text {data }}, x \sim p_t(\cdot \mid z)}\left[\left\|s_t^\theta(x)-\nabla \log p_t(x \mid z)\right\|^2\right]\end{aligned}\]
@@ -156,7 +169,7 @@ X_0 &amp; =x_0
 </li>
 </ul>
 <h1 id="guidance-how-to-condition-on-a-prompt">Guidance: How To Condition on a Prompt</h1>
-<p>直观的想法是直接在 $p_{\text{data}}(z \mid y)$ 上采样不就可以了吗（也就是说，把 $y$ 当作某个条件输入 Flow Model）？在这种情况下，训练目标为</p>
+<p>直观的想法是：直接在 $p_{\text{data}}(z \mid y)$ 上采样不就可以了吗（也就是说，把 $y$ 当作某个条件输入 Flow Model）？在这种情况下，训练目标为</p>
 \[\mathcal{L}_{\mathrm{CFM}}^{\text {guided }}(\theta)=\mathbb{E}_{(z, y) \sim p_{\text {data }}(z, y), t \sim \operatorname{Unif}[0,1], x \sim p_t(\cdot \mid z)}\left\|u_t^\theta(x \mid y)-u_t^{\text {target }}(x \mid z)\right\|^2\]
 <p>然而这样做效果并不好，猜测是有以下两个因素影响：</p>
 <ol>
