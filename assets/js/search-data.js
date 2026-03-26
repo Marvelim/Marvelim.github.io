@@ -44,7 +44,40 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-discrete-diffusion-models",
+        },{id: "post-how-to-measure-uncertainty",
+        
+          title: "How to measure uncertainty",
+        
+        description: "如何衡量不确定性",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/uncertainty/";
+          
+        },
+      },{id: "post-algebraic-structure-and-combinatorial-mathematics",
+        
+          title: "Algebraic Structure and Combinatorial Mathematics",
+        
+        description: "北京大学 代数结构与组合数学 笔记",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/algebra/";
+          
+        },
+      },{id: "post-grade-standard",
+        
+          title: "Grade Standard",
+        
+        description: "北京大学大三第二学期课程考评标准",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/grade/";
+          
+        },
+      },{id: "post-discrete-diffusion-models",
         
           title: "Discrete Diffusion Models",
         

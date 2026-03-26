@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+Algebraic Structure and Combinatorial Mathematics | Mingyu Li
+</title>
+<meta name="author" content="Mingyu Li">
+<meta name="description" content="北京大学 代数结构与组合数学 笔记">
+<meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+<link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
+<link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772">
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+<link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%AA%90&lt;/text&gt;&lt;/svg&gt;">
+<link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+<link rel="canonical" href="Marvelim.github.io/blog/2026/algebra/">
+
+<script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+<script>
+    initTheme();
+  </script>
+</head>
+
+<body class="fixed-top-nav ">
+
+<header>
+
+<nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+<div class="container">
+<a class="navbar-brand title font-weight-lighter" href="/">
+<span class="font-weight-bold">Mingyu</span>
+Li
+</a>
+
+<button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar top-bar"></span>
+<span class="icon-bar middle-bar"></span>
+<span class="icon-bar bottom-bar"></span>
+</button>
+<div class="collapse navbar-collapse text-right" id="navbarNav">
+<ul class="navbar-nav ml-auto flex-nowrap">
+
+<li class="nav-item ">
+<a class="nav-link" href="/">About
+</a>
+</li>
+
+<li class="nav-item ">
+<a class="nav-link" href="/cv/">CV
+</a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="/blog/">Blog
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="/projects/">Projects
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="/publications/">Publications
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="/misc/">Miscellaneous
+</a>
+</li>
+
+<li class="toggle-container">
+<button id="light-toggle" title="Change theme">
+<i class="ti ti-sun-moon" id="light-toggle-system"></i>
+<i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+<i class="ti ti-sun-filled" id="light-toggle-light"></i>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<progress id="progress" value="0">
+<div class="progress-container">
+<span class="progress-bar"></span>
+</div>
+</progress>
+</header>
+
+<div class="container mt-5" role="main">
+<style type="text/css">.post-password-gate{margin:1rem 0 1.5rem;padding:1.25rem;border:1px solid var(--global-divider-color);border-radius:10px;background:var(--global-card-bg-color)}.post-password-gate h3{margin:0 0 .5rem;font-size:1.1rem}.post-password-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}#post-password-input{min-width:220px;max-width:320px;padding:.45rem .6rem;border:1px solid var(--global-divider-color);border-radius:6px;background:var(--global-bg-color);color:var(--global-text-color)}#post-password-input.wrong{border-color:#d33}#post-password-submit{padding:.45rem .9rem;border:1px solid var(--global-theme-color);border-radius:6px;background:var(--global-theme-color);color:var(--global-hover-text-color);cursor:pointer}#post-password-error{margin:.5rem 0 0;color:#d33}</style>
+<div class="post">
+<header class="post-header">
+<h1 class="post-title">Algebraic Structure and Combinatorial Mathematics</h1>
+<p class="post-meta">
+Created on March 24, 2026
+</p>
+<p class="post-tags">
+<a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>
+·
+<a href="/blog/tag/math"> <i class="fa-solid fa-hashtag fa-sm"></i> math</a>
+·
+<a href="/blog/category/courses"> <i class="fa-solid fa-tag fa-sm"></i> courses</a>
+</p>
+</header>
+<div id="post-password-gate" class="post-password-gate">
+<h3>本文已加口令保护</h3>
+<p>请输入口令后查看正文。</p>
+<div class="post-password-controls">
+<input id="post-password-input" type="password" placeholder="输入口令" autocomplete="current-password">
+<button id="post-password-submit" type="button">解锁</button>
+</div>
+<p id="post-password-error" hidden>口令不正确，请重试。</p>
+</div>
+<noscript>
+<p>该文章需要启用 JavaScript 后才能输入口令。</p>
+</noscript>
+<div id="post-protected-content" hidden>
+<article class="post-content">
+<div id="markdown-content">
+<h1 id="第十五章-代数系统">第十五章 代数系统</h1>
+<h2 id="运算">运算</h2>
+<p><strong>$n \geq 0$ 元运算</strong>：函数 $f: A^n \to A$. 注意运算要求<strong>封闭性</strong>，即运算结果均属于 $A$.</p>
+<p>对一种运算，通常使用 <strong>解析表达式</strong> 或 <strong>运算表</strong> 表示。后者对集合有穷的情况，$r_{i, j} = a_i \circ a_j$. 一元运算直接写即可。</p>
+<p>特殊符号：</p>
+<ul>
+<li>$M_n(R)$ 代表全体实数 $n$ 阶方阵;</li>
+<li>$P(B)$ 代表 $B$ 的幂集;</li>
+<li>$R(B)$ 代表 $B$ 上二元关系的集合；</li>
+<li>$A^A$ 代表所有 $f: A \to A$ 构成的集合。</li>
+</ul>
+<p><strong>单个二元运算的算律</strong>：</p>
+<ul>
+<li>交换律</li>
+<li>结合律</li>
+<li>幂等律（$a \circ a = a$）</li>
+<li>消去律，即【同除】（$a \circ b = a \circ c, a \neq \theta \to b = c; b \circ a = c \circ a , a \neq \theta \to b = c$）</li>
+</ul>
+<p><strong>两个不同二元运算的算律</strong>:</p>
+<ul>
+<li>
+<p>分配律：<strong>左分配</strong> $a \circ (b * c) = (a \circ b) * (a \circ c)$, <strong>右分配</strong> $(b * c) \circ a = (b \circ a) * (c \circ a)$. 简记：若运算 $A$ ”拆开了“另一种运算 $B$，则说 $A$ 分配了 $B$, 或者说 $A$ 对 $B$ 可分配。</p>
+</li>
+<li>
+<p>吸收律：对两种 <strong>可交换</strong> 运算 $\circ$ 和 $\ast$，若有 $a \circ (a \ast b) = a$ 且 $a \ast (a \circ b) = a$，则称这两种运算有吸收律。举例：$\cap$ 和 $\cup$, $\min$ 和 $\max$.</p>
+</li>
+</ul>
+<p><strong>二元运算特异元素</strong>：设 $\circ$ 为 $A$ 上二元运算</p>
+<ul>
+<li>
+<p>单位元 $e$ （同时为左单位元 &amp; 右单位元）:  $\forall a \in A, a \circ e = e \circ a = a$.</p>
+</li>
+<li>零元 $\theta$（同时为左 &amp; 右）: $\forall a \in A, a \circ \theta = \theta \circ a = \theta$.</li>
+<li>幂等元 $a$: $a \in A, a \circ a = a$.</li>
+<li>可逆元 $x$ &amp; 逆元 $y$（同时为左逆 &amp; 右逆）: $x \in A, \exists y \in A,  x \circ y = y \circ x = e$.</li>
+</ul>
+<p><strong>说明</strong>：<strong>存在特异元素也可以作为算律</strong>（如：同一律 $\to$ 存在单位元; 零律 $\to$ 存在逆元）</p>
+<blockquote>
+<p><strong>定理 1（若存在左单位元和右单位元，则二者相等且为唯一单位元）</strong>： 对 $A$ 和其上的二元运算 $\circ$, 若存在 $e_l, e_r \in A$ 使得 $\forall x \in A$ 有 $e_l \circ x = x \circ e_r = x$，则 $e_l = e_r = e$ 并且 $e$ 为 $(A, \circ)$ 唯一单位元。</p>
+</blockquote>
+<p><strong>证明思路</strong>：【使用单位元之间运算来让其直接交互来证明相等。】具体的， $e_l$ 和 $e_r$ 直接交互有 $e_l = e_l \circ e_r = e_r$, 从而二者相等；若还存在另一单位元 $e’$, 则 $e’ = e’ \circ e = e$, 从而二者也相等。</p>
+<blockquote>
+<p><strong>定理 2（若存在左零元 &amp; 右零元，则二者相等且为唯一零元）</strong>： 对 $A$ 和其上的二元运算 $\circ$, 若存在 $\theta_l, \theta_r \in A$ 使得 $\forall x \in A$ 有 $x \circ \theta_l = \theta_r \circ x = \theta$，则 $\theta_l = \theta_r = \theta$ 并且 $\theta$ 为 $(A, \circ)$ 唯一零元。</p>
+</blockquote>
+<p><strong>证明思路</strong>：同定理 $1$.</p>
+<blockquote>
+<p><strong>定理 3 (对【可结合】二元运算，左逆 $=$ 右逆 = 唯一逆元）</strong>：设 $\circ$ 为 $A$ 上可结合二元运算，对 $x \in A$ 若存在 $y_l, y_r$ 使得 $x \circ y_r = y_l \circ x = e$，则 $y_l = y_r = y$ 并且 $y$ 为 $x$ 唯一逆元。</p>
+</blockquote>
+<p><strong>证明思路</strong>：考虑三项乘积 $y_r \circ x \circ y_l$, 这样可以同时用到结合律和左右逆的性质，从而得到 $y_l = y_r$. 此外若存在另一逆元 $y’$, 同样用 $y’ \circ x \circ y$ 结合律得到 $y’ = y$.</p>
+<h2 id="代数系统">代数系统</h2>
+<p>常用符号：</p>
+<ul>
+<li>$A$ 表示【载体】</li>
+<li>$\Omega$ 表示【运算集】，满足 $\Omega = \bigcup_{j = 1}^{+\infty} \Omega_j$, $\Omega_j$ 为 $A$ 上所有 $j$ 元运算;</li>
+<li>$K$ 表示代数常数集</li>
+</ul>
+<p><strong>代数系统（构成：成分 + 公理（即算律））的三种记法</strong> $V = \langle A, \Omega, K \rangle$ or $V = \langle A, \Omega\rangle$ or $V = \langle A, o_1, o_2, \ldots, o_r \rangle$. 例子：$\langle Z, +, \dot \rangle$, $\langle P(B), \cap, \cup \rangle$.</p>
+<p><strong>代数系统的分类</strong></p>
+<ul>
+<li>
+<strong>同类型</strong> 只需要运算的元数对应，也就是 $V_1 = \langle A, o_{11} \sim o_{1r} \rangle$, $V_2 = \langle B, o_{21} \sim o_{2r} \rangle$, 只需要满足 $o_{1i}$ 和 $o_{2i}$ 元数相同即可。</li>
+<li>
+<strong>同种</strong>要求这些运算的性质也相同（如：交换、幂等、结合、吸收、分配、消去），因此同种一定同类型，但同类型不一定同种。</li>
+</ul>
+<p><strong>子代数</strong></p>
+<ul>
+<li>
+<p>对 $A$ 的<strong>非空子集</strong> $B$，若 $B$ 对于 $V$ 种所有运算封闭，则 $V’ = \langle B, o_1 \sim o_r\rangle$ 为 $V$ 的子代数。若 $B$ 是 $A$ 的<strong>真子集</strong>，则 $V’$ 为 $V$ 的<strong>真子代数</strong>。</p>
+</li>
+<li>
+<p>$V$ 称作 $V$ 的<strong>平凡子代数。</strong> 此外，若代数常数集合为 $K$, 且 $K$ 也满足上述性质，那么 $\langle K, o_1 \sim o_r \rangle$ 也被称作平凡子代数。</p>
+</li>
+</ul>
+<p><strong>同类型代数系统的积代数</strong> 对 $V_1 = \langle A, o_{11} \sim o_{1r} \rangle$, $V_2 = \langle B, o_{21} \sim o_{2r} \rangle$, $V_1 \times V_2 = \langle A \times B, o_1 \sim o_r \rangle$, 其中 $o_i$ 也是 $k_i$ 元运算，相当于分别对 pair 的第一维和第二维做运算然后合成一个 pair. 称 $V = V_1 \times V_2$ 为 $V_1, V_2$ 积代数，$V_1, V_2$ 为 $V$ 因子代数。</p>
+<p>可以理解为积代数是为两个同类型代数系统提供了一个统一接口，让其可以一起运算。</p>
+<blockquote>
+<p><strong>注意</strong>：这里的代数系统中的运算是有序的，因为换一下可以得到另一个积代数。</p>
+</blockquote>
+<p>对积代数，有如下定理：</p>
+<blockquote>
+<p>定理：设 $V_1 = \langle A, o_{11} \sim o_{1r} \rangle$ 和 $V_2 = \langle B, o_{21} \sim o_{2r} \rangle$, $V_1$ 和 $V_2$ 积代数为 $V = \langle A \times B, o_1, o_2, \ldots, o_r \rangle$, 则：</p>
+<ol>
+<li>$o_{1i}, o_{2i}$ 分别在 $V_1, V_2$ 中满足交换律（结合/幂等），则 $o_i$ 满足上述性质；</li>
+<li>$o_{1i}$ 对 $o_{1j}$, $o_{2i}$ 对 $o_{2j}$ 分配，则 $o_i$ 对 $o_j$ 分配。</li>
+<li>$o_{1i}, o_{1j}$ 和 $o_{2i}, o_{2j}$ 分别吸收，那么 $o_i, o_j$ 吸收。</li>
+<li>对 $o_{1i}$ 和 $o_{2i}$ 的单位元 / 零元，组合后依旧是 $o_i$ 的单位元 / 零元。</li>
+<li>对 $o_{1i}$ 和 $o_{2i}$ 都是含单位元的运算，$a \to a^{-1}, b \to b^{-1}$, 那么 $\langle a, b \rangle$ 的逆元依旧是 $\langle a^{-1}, b^{-1} \rangle$.</li>
+</ol>
+</blockquote>
+<p>也就是说，对位置对应的运算，几乎所有的运算律依旧满足。<strong>注意：消去律不一定满足，因为可以让其中一维度复合一个零元，但是复合之后的东西并不是积代数的零元。</strong> 如：$\langle 0, 1 \rangle \otimes \langle 1, 0 \rangle = \langle 0, 1 \rangle \otimes \langle 0, 0 \rangle$, 然而 $\langle 0, 1 \rangle$ 不是积代数的零元。</p>
+<p>因此，若公理无消去律，则积代数与因子代数同种。反之，积代数<strong>不一定</strong>与因子代数同种。</p>
+<h2 id="代数系统的同态与同构">代数系统的同态与同构</h2>
+<p><strong>同类型的同态映射 $f: A \to B$</strong>：设 $V_1 = \langle A, o_1 \sim o_r \rangle$ 和 $V_2 = \langle B, o_1’ \sim o_r’ \rangle$ ，$f$ 满足对所有的 $(o_i, o_i’)$ 均有 $f(o_i) \equiv o_i’(f)$. 则称 $f$ 是 $V_1 \to V_2$ 的同态映射，简称同态。按映射的性质分为<strong>单同态、满同态、同构（双射）</strong>，按载体分有<strong>自同态</strong>。</p>
+<p><strong>注：同态需要保持所有运算，包括 $0$ 元运算，</strong> 例如 $V = \langle A, \cdot, \begin{bmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{bmatrix} \rangle$ 的自同态 $f$ 就需要满足 $f(\begin{bmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{bmatrix}) = \begin{bmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{bmatrix}$.</p>
+<p>例子：$\langle \mathbb{Z}_n, \oplus \rangle$ 有 $n$ 个自同态，但只有 $\varphi(n)$ 个自同构。（其实只需要选择 $f(1)$ 是谁就可以了，因为 $\mathbb{Z}_n$ 是 $1$ 生成的群）</p>
+<p><strong>同态性质</strong></p>
+<blockquote>
+<ol>
+<li>同态的合成依旧为同态：即 $f: V_1 \to V_2, g: V_2 \to V_3$ 是同态，那么 $g \circ f: V_1 \to V_3$ 也是同态。</li>
+</ol>
+</blockquote>
+<p><strong>证明思路</strong>：首先显然为映射，$f$ 是同态说明对任意运算对 $o_1, o_2$ 有 $f(o_1) = o_2(f)$. $g$ 是同态说明对任意 $o_2, o_3$ 有 $g(o_2) = o_3(g)$. 从而对运算对 $o_1, o_3$ 有</p>
+\[(g \circ f)(o_1) = g(f(o_1)) = g(o_2(f)) = o_3(g(f)) = o_3(g \circ f)\]
+<p>因此也是同态。</p>
+<blockquote>
+<p>推论：代数系统同构有自反、对称、传递性，是等价关系。</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>同态像是映射到代数系统的<strong>子代数</strong>：即 $f(A)$ 关于 $V_2$ 中运算构成代数系统，并且是 $V_2$ 的子代数，称作 $V_1$ 在 $f$ 下的<strong>同态像</strong>。</li>
+</ol>
+</blockquote>
+<p><strong>证明思路</strong>：首先说明</p>
+<ol>
+<li>
+<p>$f(A)$ 是 $A$ 的【非空子集】，这是显然的。</p>
+</li>
+<li>
+<p>$f(A)$ 对 $V_2$ 中所有运算封闭。要证明这点，需要讨论 $0$ 元运算和其它运算：1. 保持了所有代数常数，因此 $0$ 元运算保持；2. 对其他运算，可以求出原像，原像先运算后映射的结果也在像内，因此得证。</p>
+</li>
+</ol>
+<p>从上面的结果可以得知，$f$ 相当于把 $V_1$ 的运算过渡到 $V_2$. 所以有一个挺有意思的性质：</p>
+<blockquote>
+<ol>
+<li>若 $f$ 不是满同态，则 $V_2$ 中运算会保持 $V_1$ 中的【交换、结合、幂等、分配、吸收】律；同时 $f(e)$ 是 $V_2$ 中单位元，$f(\theta)$ 是 $V_2$ 中零元，$f(a^{-1}) = f(a)$ 的逆元。</li>
+</ol>
+</blockquote>
+<p>这个结论需要注意两点：</p>
+<ol>
+<li>若 $f$ 不是满同态，则上述条件只在 $f(A)$ 中保持。此时，$f(A)$ 中会单独存在单位元，而 $f$ 会将单位元映射到 $f(A)$ 中单位元。一个有趣的例子是</li>
+</ol>
+<p><img src="image-2.png" alt="满同态"></p>
+<p>这个例子里 $f$ 就不是满同态了，但是依旧会将 $A$ 中单位元映射到 $f(A)$ 中单位元。</p>
+<ol>
+<li>
+<strong>消去律</strong>不一定满足。原因是同态有可能会让信息压缩到：不同的值映射到同一个值，比如 $\mathbb{Z} \to \mathbb{Z} / 6\mathbb{Z}$. 因此消去律可能不成立。（其实这点我也没找到特别好的理解方法）</li>
+</ol>
+<h2 id="同余关系与同余类">同余关系与同余类</h2>
+<p><strong>定义</strong> 对于一个代数系统 $V = \langle A, o_1 \sim o_r \rangle$ 和一个等价关系 $\sim$, 对 $A$ 中任意的元素 ${ a }, { b }$, 若 $\forall i, a_i \sim b_i \Rightarrow o_i(a) \sim o_i(b)$, 则称 $\sim$ 对 $o_i$ 有<strong>置换性质</strong>。若 $\sim$ 对 $V$ 中所有运算<strong>都有置换性质</strong>，则称 $\sim$ 是 $V$ 上 <strong>同余关系</strong>，称 $A$ 中等价类为 <strong>同余类</strong>。</p>
+<p>显然任何代数系统都存在同余关系，比如所有元素都等价、或者所有元素都不等价。</p>
+<p><strong>商代数</strong> 对 $V = \langle A, o_1 \sim o_r \rangle$ 和同余关系 $R$, 定义 $V/R = \langle A/R, \bar{o}_1 \sim \bar{o}_r \rangle$. 其中：</p>
+<ul>
+<li>$A/R$ 是关于同余关系的商集；</li>
+<li>$\bar{o}<em>i([a_1], [a_2], \ldots, [a</em>{k_i}]) = [o_i(a_1, a_2, \ldots, a_{k_i})]$.</li>
+</ul>
+<p>代入真 同余关系，会觉得上述商代数和同余关系的定义都是比较自然的。不过首先要证明这是 <strong>良定义</strong> 的：也就是若 $a_j \sim b_j$, 则 $\bar{o_i}(b_j) = \bar{o_i}(a_j)$. 这是显然的，因为 $a_j \sim b_j$ 说明 $o_i(a_j) \sim o_i(b_j)$, 因此 $\bar{o}_i(a_j) =  \bar{o}_i(b_j)$.</p>
+<p>有了良定义之后，就可以进一步研究商代数的性质。</p>
+<blockquote>
+<p>$V/R$ 满足 $V$ 的除了消去律以外的全部律；$[e]$ 是商代数单位元；$[\theta]$ 是商代数的零元；$[a]^{-1} = [a^{-1}]$.</p>
+</blockquote>
+<p><strong>注意消去律依旧不满足</strong>（考虑同余关系 $\mod 4$, $[2] \times [2] = [0] \times [2]$, 但 $[2] \neq [0]$.）</p>
+<p>其实上述内容说明 同余 和 同态 是有一些关系的，下面的内容会进一步说明这一点。</p>
+<blockquote>
+<p><strong>（定理 1) 同态映射 导出 同余关系</strong>：设 $V_1 = \langle A, o_1 \sim o_r \rangle$ 和 $V_2 = \langle B, o_1’ \sim o_r’ \rangle$ ，$f: A \to B$ 是同态映射。则 $f$ 导出的 $A$ 上等价关系为 $V_1$ 上同余关系。</p>
+</blockquote>
+<p>直观来理解，如果拿一些 $f$ 完全相同的做运算，那么可以借助 $V_2$ 中运算的相等形式（$o’(f)$ 相等）来回来得到 $f(o)$ 相等，从而得到 $V_1$ 中运算会在一个等价类内，相当于借助 $B$ 的运算。</p>
+<p>具体证明：任取一个运算 $o_i (k_i)$ 和 ${ a } \sim { b }$, $f(o_i(a_1, a_2, \ldots, a_{k_i})) = o_i’(f(a_1), f(a_2), \ldots, f(a_{k_i})) = o_i’(f(b_1), f(b_2), \ldots, f(b_{k_i})) = f(o_i(b_1, b_2, \ldots, b_{k_i}))$.</p>
+<p>这个性质说明，每个同态都可以导出一个同余关系。但需要注意的是，并不是所有的关系都可以由自同态导出。比如 $0 \to 2, 1 \to 3, 2 \to 1, 3 \to 0$. (P85)</p>
+<blockquote>
+<p><strong>(定理 2) 商代数是原代数的同态像</strong>：设 $V = \langle A, o_1 \sim o_r \rangle$ 和 $R$ 是 $V$ 上的同余关系。则考虑自然映射 $g: g(a) = [a]$, 是 $V \to V/R$ 的同态映射。</p>
+</blockquote>
+<p>这是显然的，因为同态只要求保运算就可以了，而同余类根据定义能满足这一性质。</p>
+<p>具体证明：对每个运算 $o_i (k_i)$, 只需证明 $o_i’(g(a_1), g(a_2), \ldots, g(a_{k_i})) = g(o_i(a_1, a_2, \ldots, a_{k_i}))$. 而将 $g(a)$ 写成 $[a]$ 后会发现这是商代数的定义：$o_i’([a_1], [a_2], \ldots, [a_{k_i}]) = [o_i(a_1, a_2, \ldots, a_{k_i})]$.</p>
+<blockquote>
+<p><strong>(定理 3) 同态基本定理，同态导出的商代数同构于同态像</strong> 若 $V_1 = \langle A, o_1 \sim o_r \rangle$ 和 $V_2 = \langle B, o_1’ \sim o_r’ \rangle$ 是同类型代数系统，$f: A \to B$ 是同态映射，$R$ 是 $f$ 导出的 $V_1$ 同余关系，则 $V_1$ 上的同余关系 $R$ 导出的 <strong>商代数</strong> $V_1/R$ 和 $\langle f(A), o_1’ \sim o_r’ \rangle$ 是 <strong>同构</strong> 的。</p>
+</blockquote>
+<p>定义映射 $h([a]) = f(a)$ 即可（看起来大小是一样的就很同构），后续要依次验证<strong>良定义</strong>，<strong>双射</strong>和<strong>同态映射</strong>三点。</p>
+<p>很别扭的一点是要验证 $0$ 元运算，考虑若 $[a] \in V_1/R$ 是零元运算，那么按照商空间的定义 $a$ 在 $V_1$ 中是零元运算，因此 $f(a)$ 也是 $f(A)$ 中零元运算（可以参考之前讲的 $f$ 【保零元运算】）</p>
+<h1 id="第十六章-半群与独异点">第十六章 半群与独异点</h1>
+<p><strong>定义</strong></p>
+<ul>
+<li>广群：封闭二元运算</li>
+<li>半群 $\langle S, \circ \rangle$：封闭二元运算 + 结合律</li>
+<li>独异点（幺半群） $\langle S, \circ, e\rangle$：封闭二元运算 + 结合律 + 单位元</li>
+</ul>
+<p>注意：任何半群都可以通过扩张单位元的方式变为独异点；表达式中运算符可以省略。</p>
+<p>在半群上可以归纳定义<strong>幂运算</strong>：$a^1 = a, a^{n+1} = a^na$. 在独异点可以补充定义 $a^0 = e$. 由二元运算<strong>结合律</strong>，有</p>
+<blockquote>
+<p>(定理 1) 关于幂运算的性质： $a^na^m = a^{n+m}, (a^n)^m = a^{nm}$.</p>
+</blockquote>
+<p><strong>子半群 $\langle B, \circ \rangle$</strong> 是半群 $\langle S, \circ \rangle$ 的一个子集，满足 $\circ$ 在 $\emptyset \neq B \subseteq S$ 中封闭。同样可以定义子独异点 $\langle B, \circ, e’\rangle$. <strong>注意：子独异点必须继承独异点的单位元。</strong> 有如下定理：</p>
+<blockquote>
+<p>(定理 2) 若干子半群的非空交集仍为子半群，若干子独异点的交集仍为子独异点。</p>
+</blockquote>
+<p>证明比较显然，反证即可。</p>
+<p>对任意子集 $B \subseteq S$, 可以定义 $B$ 的<strong>生成群</strong> $\langle B \rangle$ 为最小的包含 $B$ 的半群。而这有两种定义方式：</p>
+<ol>
+<li>
+<table>
+<tbody>
+<tr>
+<td>借助 <strong>扩张</strong> 的想法，用 $B$ 中元素做运算直到无法扩张位置，即 $\langle B \rangle = \bigcup_{n \in Z^+} B^n, B^n = { b_1 b_2 \cdots b_n \</td>
+<td>b_i \in B }$.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>借助 <strong>子半群的交集</strong> 的想法，即 $\langle B \rangle = \bigcap { A \mid B \subseteq A}$ , 其中 $A$ 是 $S$ 的子半群。</li>
+</ol>
+<h1 id="第十七章-群">第十七章 群</h1>
+<p><strong>定义</strong></p>
+<ol>
+<li>可以将群看作代数系统 $\langle G, \circ, ^{-1}, e \rangle$. 定义<strong>非空集合</strong> $G$ 上的<strong>二元运算</strong> $\circ$ 满足：
+<ul>
+<li>结合律：对任意 $a, b, c \in G$, $(a \circ b) \circ c = a \circ (b \circ c)$.</li>
+<li>单位元：$\exists e \in G$，s.t. $\forall a \in G$，有 $e \circ a = a \circ e = a$.</li>
+<li>逆元：对每个 $a \in G$，存在 $a^{-1} \in G$，s.t. $a \circ a^{-1} = a^{-1} \circ a = e$.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>然而这个定义并不是最简单的定义，其实只需要存在右单位元 $e$ ，并且每个元素 $a$ 都存在右逆元 $a^{-1}$ 即可。</p>
+</blockquote>
+<p><strong>证明</strong>：先证明 $e$ 是左单位元，即对任何 $a$ 有 $ea = a$. 对此，两侧同乘 $a^{-1}$ 只需证 $eaa^{-1} = aa^{-1}$（可以两侧 $\times a$ 消掉），相当于只需证 $ee = e$, 而由于 $e$ 是右逆这是显然的。</p>
+<p>再证明 $a^{-1}$ 是 $a$ 的左逆元，即 $a^{-1}a = e$. 对此，只需证 $aa^{-1}a = ae$, 从而只需证明 $ea = ae$, 而这由 $e$ 是左单位元是显然的。</p>
+<table>
+<tbody>
+<tr>
+<td>对一个群，可以定义其<strong>阶</strong>为群的基数（有限群记为 $</td>
+<td>G</td>
+<td>$），同样也可以定义元素 $a$ 的 $n$ 次幂：</td>
+</tr>
+</tbody>
+</table>
+\[a^n = \begin{cases}
+e, n = 0 \\
+a^{n-1} a, n &gt; 0 \\
+(a^{-1})^m, m = -n, n &lt; 0
+\end{cases}\]
+<p>特别的，对任何一个元素 $a$, 定义其「阶」为<strong>使得 $a^k = e$ 的最小正整数 $k$</strong>. 若不存在这样的 $k$, 则称其阶为 $\infty$.（例如：$\langle \mathbb{Z}, + \rangle$）对于有限群，其阶肯定是有限的（特别的，阶是群的阶的因子）。但是若每个元素都是有限阶的，那么群的阶不一定是有限的，比如所有单位根和乘法构成的群。（可列 和 有限 不一样）</p>
+<p>对幂运算有如下规则：</p>
+<blockquote>
+<p>$(a^{-1})^{-1} = a, (ab)^{-1} = b^{-1}a^{-1}, a^na^m = a^{n+m}, (a^n)^m = a^{nm}$</p>
+</blockquote>
+<p>让我们看一下下面的定理</p>
+<blockquote>
+<p><strong>定理 3</strong> $ax=b$ 和 $ya=b$ 在群 $G$ 中有解且有唯一解。</p>
+</blockquote>
+<p>证明：只考虑 $ax=b$. 首先 $x=a^{-1}b$ 一定是一组解。若还有别的解 $c$ 满足 $ac=b$, 那么两侧同乘 $a^{-1}$ 有 $c=a^{-1}b$.</p>
+<blockquote>
+<p><strong>定理 4</strong> 对半群 $G$, 若对任意 $a, b \in G$ 有 $ax=b$ 和 $ya=b$ 在 $G$ 中有解，则 $G$ 为群。</p>
+</blockquote>
+<p>证明：只需要证明有 <strong>右单位元</strong> 和每个元素的 <strong>右逆元</strong>。这里任取一个元素 $b$, 用 $bx=b$ 的解 $x$ 当作 $e$.</p>
+<p>那么对任意 $a$ 可以将其分解为 $a = cb$（由于 $?b = a$ 有解），从而 $ae = cbe = cb = a$, 从而 $e$ 是右单位元。然后由 $ax=e$ 均有解和 $a$ 的任意性，得到每个元素均有右逆元。</p>
+<blockquote>
+<p><strong>定理 5（消去律）</strong> $ab=ac \Rightarrow b=c$, $ba=ca \Rightarrow b=c$.</p>
+</blockquote>
+<p>显然，每个元素有逆元，这也证明了群里没有零元。</p>
+<blockquote>
+<p><strong>定理 6</strong> 对有限半群 $G$, 若 $G$ 不含零元且消去律成立，则 $G$ 是群。</p>
+</blockquote>
+<p>证明：<strong>试图调用定理 4.</strong> 有限的好处是可以将所有可能的乘积全列出来，也就是对于 $a_i$ 我们定义 $a_i G = { a_i a_j \mid j = 1 \sim n}$. 不过根据消去律 $a_i G$ 中元素两两不同且封闭，因此 $a_i G = G$, 因此对于任意 $a_j$ 一定存在 $a_k$ 使得 $a_i a_k = a_j$. 同理可以证明一定存在 $a_k$ 使得 $a_k a_i = a_j$, 从而 $G$ 是群。</p>
+<p>从上面定理 6 可以知道下面的定理 7:</p>
+<blockquote>
+<p><strong>定理 7</strong> 若 $G$ 是群，则 $\forall a\in G,aG=G, Ga=G$</p>
+</blockquote>
+<p>不过反之不一定成立，因为运算要满足结合律。</p>
+<blockquote>
+<table>
+<tbody>
+<tr>
+<td>
+<strong>定理 8</strong> 若 $G$ 是群，且 $</td>
+<td>a</td>
+<td>= r$, 则 1.  $a^k = e \Rightarrow r</td>
+<td>k$; 2. $</td>
+<td>a</td>
+<td>=</td>
+<td>a^{-1}</td>
+<td>$; 3. 若 $</td>
+<td>G</td>
+<td>= n$, 则 $r \leq n$.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>证明：反证法证明即可。</p>
+<p>有一些有关于阶的重要结论：</p>
+<blockquote>
+<ol>
+<li>
+<table>
+<tbody>
+<tr>
+<td>$</td>
+<td>a</td>
+<td>= 1,2 \Leftrightarrow a=a^{-1}$</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<table>
+<tbody>
+<tr>
+<td>$</td>
+<td>a</td>
+<td>=</td>
+<td>a^{-1}</td>
+<td>,</td>
+<td>ab</td>
+<td>=</td>
+<td>ba</td>
+<td>,</td>
+<td>a</td>
+<td>=</td>
+<td>bab^{-1}</td>
+<td>$, 因此将 $bab^{-1}$ 称作 $a$ 的一个<strong>共轭元</strong>。</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<table>
+<tbody>
+<tr>
+<td>$</td>
+<td>a</td>
+<td>= r \Rightarrow</td>
+<td>a^t</td>
+<td>= \frac{r}{(t, r)}$</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<table>
+<tbody>
+<tr>
+<td>$</td>
+<td>a</td>
+<td>= n,</td>
+<td>b</td>
+<td>= m, ab = ba \Rightarrow</td>
+<td>ab</td>
+<td> </td>
+<td>[n, m]$. 若 $(n, m) = 1$, 则 $</td>
+<td>ab</td>
+<td>=nm$.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</blockquote>
+<p>有一些算阶的套路：</p>
+<blockquote>
+<table>
+<tbody>
+<tr>
+<td>$</td>
+<td>x</td>
+<td>=</td>
+<td>y</td>
+<td>$ 证明：设 $</td>
+<td>x</td>
+<td>= r,</td>
+<td>y</td>
+<td>= s$, 分别证明 $x^s = e$ 和 $y^r = e$ 导出 $r</td>
+<td>s, s</td>
+<td>r$ 即可。</td>
+</tr>
+<tr>
+<td>求 $</td>
+<td>x</td>
+<td>$: 构造 $n$ 使得 $x^n = e$,分析 $n$ 的因子。</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+</article>
+<br>
+<hr>
+<br>
+<ul class="list-disc pl-8"></ul>
+
+<h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+<p class="mb-2">Here are some more articles you might like to read next:</p>
+<li class="my-2">
+<a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2026/uncertainty/">How to measure uncertainty</a>
+</li>
+<li class="my-2">
+<a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2026/grade/">Grade Standard</a>
+</li>
+<li class="my-2">
+<a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2026/mit-6-s184/">Discrete Diffusion Models</a>
+</li>
+<li class="my-2">
+<a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2026/mit-6-s184/">MIT Course 6.S184</a>
+</li>
+<li class="my-2">
+<a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2026/computer-networks-physics/">计算机网络（春季）第二讲：物理层</a>
+</li>
+</div>
+<script>
+      (function () {
+        const expectedPassword = "daizu2026";
+        const postPath = "/blog/2026/algebra/";
+        const gate = document.getElementById("post-password-gate");
+        const protectedContent = document.getElementById("post-protected-content");
+        const passwordInput = document.getElementById("post-password-input");
+        const submitButton = document.getElementById("post-password-submit");
+        const errorMessage = document.getElementById("post-password-error");
+
+        if (!expectedPassword || !gate || !protectedContent || !passwordInput || !submitButton || !errorMessage) {
+          return;
+        }
+
+        const storageKey = "alfolio-post-unlocked:" + postPath;
+        let storage = null;
+
+        try {
+          storage = window.localStorage;
+        } catch (error) {
+          storage = null;
+        }
+
+        const unlock = function () {
+          gate.hidden = true;
+          protectedContent.hidden = false;
+        };
+
+        if (storage && storage.getItem(storageKey) === "1") {
+          unlock();
+          return;
+        }
+
+        const tryUnlock = function () {
+          if (passwordInput.value === expectedPassword) {
+            if (storage) {
+              storage.setItem(storageKey, "1");
+            }
+            unlock();
+            return;
+          }
+
+          errorMessage.hidden = false;
+          passwordInput.classList.add("wrong");
+          passwordInput.focus();
+          passwordInput.select();
+        };
+
+        submitButton.addEventListener("click", tryUnlock);
+
+        passwordInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            tryUnlock();
+          }
+        });
+
+        passwordInput.addEventListener("input", function () {
+          errorMessage.hidden = true;
+          passwordInput.classList.remove("wrong");
+        });
+      })();
+    </script>
+</div>
+</div>
+
+<footer class="fixed-bottom" role="contentinfo">
+<div class="container mt-0">
+© Copyright 2026
+Mingyu
+Li. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+</div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script defer src="/assets/js/masonry.js?a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+<script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+
+<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
+<script defer src="/assets/js/common.js?c15de51d4bb57887caa2c21988d97279"></script>
+<script defer src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script>
+
+<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
+
+<script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+<script async src="https://badge.dimensions.ai/badge.js"></script>
+
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+<script src="/assets/js/mathjax-setup.js?a2770ffd6b079bcfd017620fceaa1857"></script>
+<script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+
+<script defer src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script>
+
+<script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+<script>
+    addBackToTop();
+  </script>
+</body>
+</html>
