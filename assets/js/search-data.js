@@ -44,15 +44,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/misc/";
           },
-        },{id: "post-how-to-measure-uncertainty",
+        },{id: "post-computer-networks-lab-2",
         
-          title: "How to measure uncertainty",
+          title: "Computer Networks Lab 2",
         
-        description: "如何衡量不确定性",
+        description: "计算机网络（春季）Lab 2 Solution",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/uncertainty/";
+            window.location.href = "/blog/2026/computer-networks-lab-2/";
           
         },
       },{id: "post-algebraic-structure-and-combinatorial-mathematics",
@@ -119,6 +119,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/computer-networks-lab-1/";
+          
+        },
+      },{id: "post-computer-networks-lab-3",
+        
+          title: "Computer Networks Lab 3",
+        
+        description: "计算机网络（春季）Lab 3 Solution",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/computer-networks-lab-1-copy/";
           
         },
       },{id: "books-the-godfather",

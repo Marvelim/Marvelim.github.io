@@ -9,10 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>
-How to measure uncertainty | Mingyu Li
+Computer Networks Lab 2 | Mingyu Li
 </title>
 <meta name="author" content="Mingyu Li">
-<meta name="description" content="如何衡量不确定性">
+<meta name="description" content="计算机网络（春季）Lab 2 Solution">
 <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
@@ -26,7 +26,7 @@ How to measure uncertainty | Mingyu Li
 
 <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%AA%90&lt;/text&gt;&lt;/svg&gt;">
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="Marvelim.github.io/blog/2026/uncertainty/">
+<link rel="canonical" href="Marvelim.github.io/blog/2026/computer-networks-lab-2/">
 
 <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
 <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
@@ -104,14 +104,16 @@ Li
 <style type="text/css">.post-password-gate{margin:1rem 0 1.5rem;padding:1.25rem;border:1px solid var(--global-divider-color);border-radius:10px;background:var(--global-card-bg-color)}.post-password-gate h3{margin:0 0 .5rem;font-size:1.1rem}.post-password-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}#post-password-input{min-width:220px;max-width:320px;padding:.45rem .6rem;border:1px solid var(--global-divider-color);border-radius:6px;background:var(--global-bg-color);color:var(--global-text-color)}#post-password-input.wrong{border-color:#d33}#post-password-submit{padding:.45rem .9rem;border:1px solid var(--global-theme-color);border-radius:6px;background:var(--global-theme-color);color:var(--global-hover-text-color);cursor:pointer}#post-password-error{margin:.5rem 0 0;color:#d33}</style>
 <div class="post">
 <header class="post-header">
-<h1 class="post-title">How to measure uncertainty</h1>
+<h1 class="post-title">Computer Networks Lab 2</h1>
 <p class="post-meta">
 Created on March 24, 2026
 </p>
 <p class="post-tags">
 <a href="/blog/2026"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </a>
 ·
-<a href="/blog/category/research"> <i class="fa-solid fa-tag fa-sm"></i> research</a>
+<a href="/blog/tag/computer-networks"> <i class="fa-solid fa-hashtag fa-sm"></i> computer_networks</a>
+·
+<a href="/blog/category/courses"> <i class="fa-solid fa-tag fa-sm"></i> courses</a>
 </p>
 </header>
 <div id="post-password-gate" class="post-password-gate">
@@ -129,6 +131,33 @@ Created on March 24, 2026
 <div id="post-protected-content" hidden>
 <article class="post-content">
 <div id="markdown-content">
+<h1 id="提权重">提权重</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chmod</span> <span class="nt">-R</span> 777 <span class="nb">.</span>
+</code></pre></div></div>
+<h1 id="request-and-response">Request and Response</h1>
+<p>目标：发一个 request 之后 recv 一个 response. 学习 socket 用法：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">ssize_t</span> <span class="nf">send</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span> <span class="c1">// len 代表实际发送长度</span>
+<span class="kt">ssize_t</span> <span class="nf">recv</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">);</span> <span class="c1">// len 代表最大接收长度（缓冲区大小）</span>
+</code></pre></div></div>
+<p>由于 rbuf 只有 RECV_SIZE 大小，因此 recv 时不能超过 RECV_SIZE.</p>
+<p>感觉 recv 应该是能收全的，发的话搞成循环发试一下。</p>
+<h1 id="establish-connection">Establish Connection</h1>
+<p>使用 getaddrinfo 可以将域名转换为 IP 地址：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">getaddrinfo</span><span class="p">(</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">node</span><span class="p">,</span> <span class="c1">// 域名</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span> <span class="c1">// 端口号 or 服务名</span>
+    <span class="k">const</span> <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">hints</span><span class="p">,</span>  <span class="c1">// 筛选条件</span>
+    <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">**</span><span class="n">res</span> <span class="p">);</span>
+</code></pre></div></div>
+<p>需要注意 hint 的写法，目前是 IPv4，因此 family 是 AF_INET. 同时 socktype 是 SOCK_STREAM, 因为 SMTP 是基于 TCP 的。</p>
+<p>然后用 connect 函数：</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">connect</span><span class="p">(</span><span class="kt">int</span> <span class="n">sockfd</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">addr</span><span class="p">,</span> <span class="n">socklen_t</span> <span class="n">addrlen</span><span class="p">);</span>
+</code></pre></div></div>
+<p>需要注意的是要把 addr 转回 sockaddr, 是可以强行转换的。</p>
+<h1 id="prepare-data">Prepare Data</h1>
+<p>这好像比较简单？反复用 sprintf 和 strcat 即可。需要注意的是 attach_file 怎么写，用 uuencode.</p>
+<h1 id="send-email">Send Email</h1>
+<p>就是一个个 section 发。</p>
 </div>
 </article>
 <br>
@@ -156,8 +185,8 @@ Created on March 24, 2026
 </div>
 <script>
       (function () {
-        const expectedPassword = "uncertainty";
-        const postPath = "/blog/2026/uncertainty/";
+        const expectedPassword = "cnl2";
+        const postPath = "/blog/2026/computer-networks-lab-2/";
         const gate = document.getElementById("post-password-gate");
         const protectedContent = document.getElementById("post-protected-content");
         const passwordInput = document.getElementById("post-password-input");
