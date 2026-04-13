@@ -41,6 +41,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-👋Hi! I’m Mingyu Li (李鸣宇), an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/). Prior to that, I learned informatics in [BDFZ](https://www.pkuschool.edu.cn) and got a **silver medal** in the National Olympiad of Informatics (NOI 2021).
+👋Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/). Prior to that, I learned informatics in [BDFZ](https://www.pkuschool.edu.cn) and got a **silver medal** in the National Olympiad of Informatics (NOI 2021).
 
 I have been fortunate to collaborate with [Prof. Hao Tang](https://ha0tang.github.io/), [Prof. Zeyu Zheng](https://zheng80.github.io/) and [Prof. Cihang Xie](https://cihangxie.github.io/). These collaborations have significantly shaped how I choose research problems, structure solutions, and write papers.
