@@ -6,12 +6,9 @@ permalink: /
 
 profile:
   align: right
-  image: nano.jpg
+  image: img_self.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p> ⬆️ by Nano Banana Pro </p>
-    <p> 🏫 Peking University </p>
-    <p> 📍 Beijing, China </p>
     <p>📧 <a href="mailto:mingyulics@stu.pku.edu.cn">Email</a></p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
