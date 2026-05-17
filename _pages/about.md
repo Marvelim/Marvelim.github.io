@@ -41,9 +41,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-👋Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/). Prior to that, I learned informatics in [BDFZ](https://www.pkuschool.edu.cn) and got a **silver medal** in the National Olympiad of Informatics (NOI 2021).
-
-In Summer 2026, I will visit Stanford University as a visiting student.
+👋Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/). Prior to that, I learned informatics in [BDFZ](https://www.pkuschool.edu.cn) and got a **silver medal** in the National Olympiad of Informatics (NOI 2021). In Summer 2026, I will visit Stanford University as a visiting student.
 
 My research interests lie at the intersection of AI and biomedicine. I am especially excited about applying emerging AI capabilities, such as generative AI, to biological and medical problems, with the goal of accelerating biomedical discovery and improving human health.
 
