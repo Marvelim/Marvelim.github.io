@@ -1,15 +1,5 @@
 [
   {
-    "slug": "有限域",
-    "title": "有限域",
-    "date": "2026-06-10",
-    "tags": [
-      "math",
-      "notes"
-    ],
-    "summary": "《代数结构与组合数学》期末复习"
-  },
-  {
     "slug": "eulers-identity",
     "title": "A note on Euler's identity",
     "date": "2026-06-10",
@@ -18,6 +8,16 @@
       "notes"
     ],
     "summary": "The most beautiful equation, and a one-line intuition."
+  },
+  {
+    "slug": "field",
+    "title": "有限域",
+    "date": "2026-06-10",
+    "tags": [
+      "math",
+      "notes"
+    ],
+    "summary": "《代数结构与组合数学》期末复习"
   },
   {
     "slug": "hello-world",
