@@ -10,10 +10,6 @@ Hi — I'm an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/englis
 
 My research lives at the intersection of *AI and biomedicine*. I'm drawn to bringing emerging capabilities — generative models in particular — to biological and medical problems, with the hope of accelerating discovery and improving human health.
 
-## Working with
-
-I've been lucky to collaborate with [Hao Tang](https://ha0tang.github.io/), [Zeyu Zheng](https://zheng80.github.io/), and [Cihang Xie](https://cihangxie.github.io/). They've shaped how I pick problems, build solutions, and write them up.
-
 ## A few honors
 
 - **John Hopcroft Scholarship** · 2025
