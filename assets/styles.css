@@ -112,6 +112,18 @@ body {
   color: var(--accent);
 }
 
+/* Award rows: name on the left, year flush right */
+.content ul li:has(.year) {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.content .year {
+  margin-left: auto;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
 /* Links — quiet underline that warms on hover */
 .content a {
   color: var(--ink);
