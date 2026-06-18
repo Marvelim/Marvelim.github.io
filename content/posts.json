@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "eulers-identity",
+    "title": "A note on Euler's identity",
+    "date": "2026-06-10",
+    "tags": [
+      "math",
+      "notes"
+    ],
+    "summary": "The most beautiful equation, and a one-line intuition."
+  },
+  {
+    "slug": "hello-world",
+    "title": "Hello, world",
+    "date": "2026-06-01",
+    "tags": [
+      "notes",
+      "meta"
+    ],
+    "summary": "Why I started this blog and what to expect here."
+  }
+]
