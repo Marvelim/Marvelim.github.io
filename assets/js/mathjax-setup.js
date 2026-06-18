@@ -1,1 +1,0 @@
-window.MathJax={tex:{tags:"ams",processEnvironments:!0,processEscapes:!0,displayMath:[["$$","$$"],["\\[","\\]"]],inlineMath:[["$","$"],["\\(","\\)"]]},options:{renderActions:{addCss:[200,function(){const n=document.createElement("style");n.innerHTML="\n          .mjx-container {\n            color: inherit;\n          }\n        ",document.head.appendChild(n)},""]}}};
