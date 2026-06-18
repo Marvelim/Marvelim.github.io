@@ -19,6 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build blog index
+        run: python3 scripts/build_posts.py
+
       - name: Assemble static site
         run: |
           rm -rf _site
