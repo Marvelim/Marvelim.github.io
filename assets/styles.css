@@ -53,21 +53,13 @@ body {
   margin: 0 0 0.6rem;
 }
 
-/* Tagline: the paragraph immediately after the name */
+/* Contact row: the links immediately after the name */
 .content h1 + p {
   margin: 0 0 2.8rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-soft);
-}
-.content h1 + p::before {
-  content: "";
-  display: inline-block;
-  width: 1.4rem;
-  height: 1px;
-  background: var(--accent);
-  vertical-align: middle;
-  margin-right: 0.65rem;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  word-spacing: 0.4em;
+  text-transform: uppercase;
 }
 
 /* Section labels (H2) — small, uppercase */
