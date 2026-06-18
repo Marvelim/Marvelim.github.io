@@ -28,10 +28,21 @@ function parseFrontmatter(text) {
   return { meta, body: text.slice(match[0].length) };
 }
 
+// Highlight the nav link for the current page.
+function setActiveNav(slug) {
+  document.querySelectorAll(".site-nav a").forEach((a) => {
+    const route =
+      a.getAttribute("href").replace(/^#\/?/, "").trim() || DEFAULT_PAGE;
+    a.classList.toggle("active", route === slug);
+  });
+}
+
 async function renderPage() {
   const slug = (location.hash.replace(/^#\/?/, "").trim() || DEFAULT_PAGE)
     .replace(/[^a-z0-9_-]/gi, ""); // keep it to safe filenames
   const el = document.getElementById("content");
+  el.className = "content page-" + slug; // lets CSS target a specific page
+  setActiveNav(slug);
 
   try {
     const res = await fetch(`content/${slug}.md`, { cache: "no-cache" });
