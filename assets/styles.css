@@ -160,19 +160,6 @@ body {
 /* Math (KaTeX) — keep KaTeX's own 1.21em scaling so math optically
    matches the surrounding text size (don't force it to 1em). */
 
-/* Footer ------------------------------------------------------- */
-
-.site-footer {
-  margin-top: 4rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
-}
-.site-footer p {
-  margin: 0;
-  font-size: 0.78rem;
-  color: var(--ink-faint);
-}
-
 /* Accessibility ------------------------------------------------ */
 
 a:focus-visible {
