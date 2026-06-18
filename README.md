@@ -79,7 +79,15 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Deploy
+## Publish
 
-It's fully static — push to a `username.github.io` repo (or any static host)
-and it just works, no configuration needed.
+Edit your content in this folder, then run:
+
+```bash
+./push.sh                 # commit message defaults to a timestamp
+./push.sh "new blog post" # or pass your own message
+```
+
+It rebuilds the blog index, mirrors the files into the git repo, and pushes to
+`main`. GitHub Actions builds and deploys to https://marvelim.github.io (live
+in about a minute). The repo path is set near the top of `push.sh`.
