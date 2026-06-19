@@ -5,13 +5,13 @@
    --------------------------------------------------------------- */
 
 :root {
-  --bg:        #fcfbf7;  /* warm paper            */
-  --ink:       #23211d;  /* near-black, warm      */
-  --ink-soft:  #6f6a60;  /* muted text            */
-  --ink-faint: #a39d8f;  /* labels, meta          */
-  --line:      #e7e2d6;  /* hairlines             */
-  --accent:    #a85c42;  /* muted terracotta      */
-  --code-bg:   #f3f1ea;
+  --bg:        #f4f8f9;  /* cool light slate      */
+  --ink:       #1d2327;  /* near-black, cool      */
+  --ink-soft:  #566069;  /* muted slate           */
+  --ink-faint: #95a0a8;  /* labels, meta          */
+  --line:      #dfe6ea;  /* hairlines             */
+  --accent:    #2f7d92;  /* steel teal-blue       */
+  --code-bg:   #e9eff1;
 
   /* JetBrains Mono everywhere, with graceful monospace fallbacks */
   --font: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
@@ -79,20 +79,28 @@ body {
   text-transform: uppercase;
 }
 
-/* Section labels (H2) — small, uppercase */
+/* Subheadings (default — used in blog posts and any normal page) */
 .content h2 {
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  margin: 2.6rem 0 0.8rem;
+}
+
+.content h3 {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 2rem 0 0.6rem;
+}
+
+/* About page only: H2 is a small uppercase section label, not a heading */
+.content.page-about h2 {
   font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-faint);
   margin: 3.2rem 0 0.95rem;
-}
-
-.content h3 {
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin: 2.4rem 0 0.6rem;
 }
 
 /* Body copy */
