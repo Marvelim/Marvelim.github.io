@@ -86,14 +86,27 @@ body {
   margin: 0 0 0.6rem;
 }
 
-/* Contact row: the links immediately after the name (About page only) */
-.page-about h1 + p {
+/* Contact row: the icon links immediately after the name (About page only) */
+.page-about .contact {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
   margin: 0 0 2.8rem;
-  font-size: 1rem;
-  letter-spacing: 0.06em;
-  word-spacing: 0.4em;
-  text-transform: uppercase;
 }
+.content a.icon-link {
+  display: inline-flex;
+  line-height: 0;
+  color: var(--ink-soft);
+  background-image: none;       /* drop the underline used by text links */
+  padding-bottom: 0;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+.content a.icon-link:hover {
+  color: var(--accent);
+  background-image: none;
+  transform: translateY(-1px);
+}
+.content a.icon-link svg { display: block; }
 
 /* Subheadings (default — used in blog posts and any normal page) */
 .content h2 {
