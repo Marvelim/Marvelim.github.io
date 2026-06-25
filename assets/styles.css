@@ -107,6 +107,9 @@ body {
   transform: translateY(-1px);
 }
 .content a.icon-link svg { display: block; }
+/* The envelope glyph has built-in padding; the GitHub/Scholar marks are
+   full-bleed. Nudge only the envelope so it sits flush with the text column. */
+.contact a.icon-link:first-child svg { transform: translateX(-2px); }
 
 /* Subheadings (default — used in blog posts and any normal page) */
 .content h2 {
