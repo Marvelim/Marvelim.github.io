@@ -1,6 +1,6 @@
 ---
 title: Hello, world
-date: 2026-06-01
+date: 2026-06-18
 tags: notes, meta
 summary: Why I started this blog and what to expect here.
 ---
