@@ -20,6 +20,11 @@ Hi — I'm an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/englis
 
 My research lives at the intersection of *AI and biomedicine*. I'm drawn to bringing emerging capabilities — generative models in particular — to biological and medical problems, with the hope of accelerating discovery and improving human health.
 
+## Publications
+
+- [**PerturbCellRL: Verifier-Guided Reinforcement Learning for Single-Cell Perturbation Prediction**](https://arxiv.org/pdf/2606.27752)  
+  Dongxia Wu, **Mingyu Li**, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox. *arXiv*, 2026.
+
 ## Education
 
 - **Peking University** <span class="year">2023.09 - 2027.06 (Expected)</span>
