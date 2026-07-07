@@ -41,33 +41,34 @@ Then link to it from any page with `[Research](#/research)`. That's it.
 
 Math uses standard LaTeX delimiters: `$ ... $` inline, `$$ ... $$` display.
 
-## Add a blog post
+## Add a note
 
-Drop a Markdown file in `content/posts/`, e.g. `content/posts/my-post.md`:
+Drop a Markdown file in `content/notes/`, e.g. `content/notes/my-note.md`:
 
 ```markdown
 ---
-title: My post
+title: My note
+course: Machine Learning
 date: 2026-06-18
-tags: math, notes
-summary: One line shown on the blog index.
+summary: One line shown under the note on the index.
 ---
 
-# My post
+# My note
 
 Write Markdown + LaTeX here, like $e^{i\pi}+1=0$.
 ```
 
-Then rebuild the post index:
+The `course` field decides which block the note lands in — pick any course
+name and notes sharing it are grouped together. Then rebuild the index:
 
 ```bash
-python3 scripts/build_posts.py    # regenerates content/posts.json
+python3 scripts/build_notes.py    # regenerates content/notes.json
 ```
 
-The blog index (`#/blog`) lists posts newest-first with a tag filter at the
-top (`#/blog/tag/math`); each post lives at `#/post/<filename>`. On the live
-site the deploy workflow runs `build_posts.py` for you, so you only need to
-commit the new `.md` file.
+The notes index (`#/notes`) groups notes into one block per course, newest-first,
+with a course filter at the top (`#/notes/course/Machine%20Learning`); each note
+lives at `#/note/<filename>`. On the live site the deploy workflow runs
+`build_notes.py` for you, so you only need to commit the new `.md` file.
 
 ## Run locally
 

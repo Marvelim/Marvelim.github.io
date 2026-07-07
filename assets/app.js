@@ -1,16 +1,17 @@
 /* ---------------------------------------------------------------
    Tiny client-side renderer + router.
    Routes (hash-based):
-     #/            -> content/about.md
-     #/misc        -> content/misc.md
-     #/blog        -> blog index (from content/posts.json)
-     #/blog/tag/x  -> blog index filtered by tag "x"
-     #/post/<slug> -> content/posts/<slug>.md
+     #/               -> content/about.md
+     #/misc           -> content/misc.md
+     #/notes          -> notes index, grouped into course blocks
+     #/notes/course/x -> notes index showing only course "x"
+     #/note/<slug>    -> content/notes/<slug>.md
    Add a normal page: drop content/<name>.md and link #/<name>.
-   Add a blog post:   drop content/posts/<slug>.md (frontmatter:
-                      title, date, tags, summary), then rebuild the
-                      index (scripts/build_posts.py; the deploy
-                      workflow does this automatically).
+   Add a note:        drop content/notes/<slug>.md (frontmatter:
+                      title, course, date, summary), then rebuild the
+                      index (scripts/build_notes.py; the deploy
+                      workflow does this automatically). The `course`
+                      field decides which block the note lands in.
    --------------------------------------------------------------- */
 
 const DEFAULT_PAGE = "about";
@@ -48,9 +49,9 @@ async function fetchText(path) {
   return res.text();
 }
 
-async function loadPosts() {
+async function loadNotes() {
   try {
-    return JSON.parse(await fetchText("content/posts.json"));
+    return JSON.parse(await fetchText("content/notes.json"));
   } catch {
     return [];
   }
@@ -85,12 +86,12 @@ async function renderPage() {
   const seg = parseHash();
   const el = document.getElementById("content");
 
-  if (seg[0] === "blog") {
-    const tag = seg[1] === "tag" ? seg[2] : null;
-    return renderBlogIndex(el, tag);
+  if (seg[0] === "notes") {
+    const course = seg[1] === "course" ? seg[2] : null;
+    return renderNotesIndex(el, course);
   }
-  if (seg[0] === "post" && seg[1]) {
-    return renderPost(el, safeSlug(seg[1]));
+  if (seg[0] === "note" && seg[1]) {
+    return renderNote(el, safeSlug(seg[1]));
   }
   return renderMarkdownPage(el, safeSlug(seg[0] || DEFAULT_PAGE));
 }
@@ -109,64 +110,71 @@ async function renderMarkdownPage(el, slug) {
   window.scrollTo(0, 0);
 }
 
-function tagLink(tag) {
-  return `<a class="tag" href="#/blog/tag/${encodeURIComponent(tag)}">${escapeHtml(tag)}</a>`;
-}
+async function renderNotesIndex(el, activeCourse) {
+  el.className = "content page-notes";
+  setActiveNav("notes");
+  document.title = activeCourse ? `Notes · ${activeCourse}` : "Notes";
 
-async function renderBlogIndex(el, activeTag) {
-  el.className = "content page-blog";
-  setActiveNav("blog");
-  document.title = activeTag ? `Blog · ${activeTag}` : "Blog";
+  const notes = await loadNotes();
 
-  const posts = await loadPosts();
-  const tags = [...new Set(posts.flatMap((p) => p.tags || []))].sort();
-  const shown = activeTag
-    ? posts.filter((p) => (p.tags || []).includes(activeTag))
-    : posts;
+  // Course names in the order their newest note appears (notes.json is
+  // already newest-first), so busier courses tend to float to the top.
+  const courses = [...new Set(notes.map((n) => n.course))];
+  const shown = activeCourse ? courses.filter((c) => c === activeCourse) : courses;
 
   const chip = (label, route, on) =>
-    `<a class="tag-chip${on ? " active" : ""}" href="#/blog${route}">${escapeHtml(label)}</a>`;
+    `<a class="course-chip${on ? " active" : ""}" href="#/notes${route}">${escapeHtml(label)}</a>`;
   const filter =
-    `<div class="tag-filter">` +
-    chip("All", "", !activeTag) +
-    tags.map((t) => chip(t, `/tag/${encodeURIComponent(t)}`, t === activeTag)).join("") +
+    `<div class="course-filter">` +
+    chip("All", "", !activeCourse) +
+    courses
+      .map((c) => chip(c, `/course/${encodeURIComponent(c)}`, c === activeCourse))
+      .join("") +
     `</div>`;
 
-  const list = shown.length
-    ? `<ul class="post-list">` +
-      shown
-        .map(
-          (p) => `<li>
-            <a class="post-row" href="#/post/${encodeURIComponent(p.slug)}">
-              <span class="post-title">${escapeHtml(p.title)}</span>
-              <span class="post-date">${escapeHtml(p.date)}</span>
-            </a>
-            ${p.summary ? `<p class="post-summary">${escapeHtml(p.summary)}</p>` : ""}
-            ${(p.tags || []).length ? `<div class="post-tags">${p.tags.map(tagLink).join("")}</div>` : ""}
-          </li>`
-        )
-        .join("") +
-      `</ul>`
-    : `<p class="empty">No posts${
-        activeTag ? ` tagged “${escapeHtml(activeTag)}”` : ""
+  const noteRow = (n) => `<li>
+        <a class="note-row" href="#/note/${encodeURIComponent(n.slug)}">
+          <span class="note-title">${escapeHtml(n.title)}</span>
+          ${n.date ? `<span class="note-date">${escapeHtml(n.date)}</span>` : ""}
+        </a>
+        ${n.summary ? `<p class="note-summary">${escapeHtml(n.summary)}</p>` : ""}
+      </li>`;
+
+  const block = (course) => {
+    const items = notes.filter((n) => n.course === course);
+    return `<section class="course-block">
+        <h2 class="course-name">
+          <a href="#/notes/course/${encodeURIComponent(course)}">${escapeHtml(course)}</a>
+          <span class="course-count">${items.length}</span>
+        </h2>
+        <ul class="note-list">${items.map(noteRow).join("")}</ul>
+      </section>`;
+  };
+
+  const blocks = shown.length
+    ? shown.map(block).join("")
+    : `<p class="empty">No notes${
+        activeCourse ? ` in “${escapeHtml(activeCourse)}”` : ""
       } yet.</p>`;
 
-  el.innerHTML = `<h1>Blog</h1>${filter}${list}`;
+  el.innerHTML = `<h1>Notes</h1>${filter}${blocks}`;
   window.scrollTo(0, 0);
 }
 
-async function renderPost(el, slug) {
-  el.className = "content page-post";
-  setActiveNav("blog");
-  const back = `<p class="back"><a href="#/blog">← Blog</a></p>`;
+async function renderNote(el, slug) {
+  el.className = "content page-note";
+  setActiveNav("notes");
+  const back = `<p class="back"><a href="#/notes">← Notes</a></p>`;
   try {
-    const { meta, body } = parseFrontmatter(await fetchText(`content/posts/${slug}.md`));
-    document.title = meta.title || "Blog";
-    const tags = (meta.tags || "").split(",").map((t) => t.trim()).filter(Boolean);
+    const { meta, body } = parseFrontmatter(await fetchText(`content/notes/${slug}.md`));
+    document.title = meta.title || "Notes";
+    const course = (meta.course || "").trim();
     const metaLine =
-      `<p class="post-meta">` +
-      (meta.date ? `<span class="post-date">${escapeHtml(meta.date)}</span>` : "") +
-      (tags.length ? `<span class="post-tags">${tags.map(tagLink).join("")}</span>` : "") +
+      `<p class="note-meta">` +
+      (course
+        ? `<a class="course-tag" href="#/notes/course/${encodeURIComponent(course)}">${escapeHtml(course)}</a>`
+        : "") +
+      (meta.date ? `<span class="note-date">${escapeHtml(meta.date)}</span>` : "") +
       `</p>`;
     el.innerHTML = back + marked.parse(body);
     const h1 = el.querySelector("h1");
@@ -174,7 +182,7 @@ async function renderPost(el, slug) {
     else el.insertAdjacentHTML("beforeend", metaLine);
   } catch {
     document.title = "Not found";
-    el.innerHTML = back + notFound(`content/posts/${slug}.md`);
+    el.innerHTML = back + notFound(`content/notes/${slug}.md`);
   }
   window.scrollTo(0, 0);
 }
