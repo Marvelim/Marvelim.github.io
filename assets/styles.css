@@ -38,12 +38,13 @@ body {
 
 /* Sans-serif for navigation, labels, and UI chrome */
 .site-nav,
-.tag-filter,
-.content a.tag-chip,
-.content a.tag,
-.post-meta,
-.post-date,
-.post-title,
+.course-filter,
+.content a.course-chip,
+.content a.course-tag,
+.course-name,
+.note-meta,
+.note-date,
+.note-title,
 .back,
 .page-about h1 + p {
   font-family: var(--font-sans);
@@ -175,35 +176,63 @@ body {
   white-space: nowrap;
 }
 
-/* Blog — tag filter */
-.tag-filter {
+/* Notes — course filter */
+.course-filter {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 0 2.2rem;
+  margin: 0 0 2.6rem;
   font-size: 0.76rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.content a.tag-chip {
+.content a.course-chip {
   background-image: none;
   padding-bottom: 0;
   color: var(--ink-faint);
 }
-.content a.tag-chip:hover { color: var(--accent); }
-.content a.tag-chip.active { color: var(--ink); }
+.content a.course-chip:hover { color: var(--accent); }
+.content a.course-chip.active { color: var(--ink); }
 
-/* Blog — post list (no bullet dash; hairlines separate entries) */
-.post-list { list-style: none; margin: 0; padding: 0; }
-.content .post-list li {
-  padding: 1.2rem 0;
-  margin: 0;
-  border-top: 1px solid var(--line);
+/* Notes — one block per course */
+.course-block { margin: 0 0 3rem; }
+.course-block:last-child { margin-bottom: 0; }
+
+.course-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.4rem !important;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
 }
-.content .post-list li::before { content: none; }
-.post-list li:last-child { border-bottom: 1px solid var(--line); }
+.content .course-name a {
+  background-image: none;
+  padding-bottom: 0;
+  color: var(--ink-faint);
+}
+.content .course-name a:hover { color: var(--accent); }
+.course-count {
+  color: var(--ink-faint);
+  font-weight: 400;
+  font-size: 0.72rem;
+}
 
-.content a.post-row {
+/* Notes — note list within a block (no bullet dash) */
+.note-list { list-style: none; margin: 0; padding: 0; }
+.content .note-list li {
+  padding: 1rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.content .note-list li::before { content: none; }
+
+.content a.note-row {
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -211,36 +240,22 @@ body {
   padding-bottom: 0;
   color: var(--ink);
 }
-.post-title { font-weight: 700; }
-.content a.post-row:hover .post-title { color: var(--accent); }
-.post-date {
+.note-title { font-weight: 700; }
+.content a.note-row:hover .note-title { color: var(--accent); }
+.note-date {
   margin-left: auto;
   color: var(--ink-faint);
   font-size: 0.85rem;
   white-space: nowrap;
 }
-.post-summary {
+.note-summary {
   margin: 0.45rem 0 0;
   color: var(--ink-soft);
   font-size: 0.95rem;
 }
-.post-tags {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-.content a.tag {
-  background-image: none;
-  padding-bottom: 0;
-  color: var(--ink-faint);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-.content a.tag:hover { color: var(--accent); }
 .empty { color: var(--ink-soft); }
 
-/* Post page */
+/* Note page */
 .back {
   margin: 0 0 1.4rem;
   font-size: 0.8rem;
@@ -253,7 +268,7 @@ body {
   color: var(--ink-faint);
 }
 .content .back a:hover { color: var(--accent); }
-.post-meta {
+.note-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -262,8 +277,16 @@ body {
   color: var(--ink-faint);
   font-size: 0.85rem;
 }
-.post-meta .post-date { margin-left: 0; }
-.post-meta .post-tags { margin-top: 0; }
+.content a.course-tag {
+  background-image: none;
+  padding-bottom: 0;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.content a.course-tag:hover { color: var(--accent); }
+.note-meta .note-date { margin-left: 0; }
 
 /* Links — quiet underline that warms on hover */
 .content a {
