@@ -1,25 +1,25 @@
 /* ---------------------------------------------------------------
-   Minimal — a quiet, light theme.
-   Serif body for reading, sans headings & chrome, mono for code.
+   Academic — a LaTeX / professor-homepage look.
+   Off-white paper, black text, classic blue links, Newsreader serif.
+   Centered name, justified body copy, thin section rules.
    Styles the HTML that Markdown renders into `.content`.
    One column, generous whitespace.
    --------------------------------------------------------------- */
 
 :root {
-  --bg:        #f4f8f9;  /* cool light slate      */
-  --ink:       #1d2327;  /* near-black, cool      */
-  --ink-soft:  #566069;  /* muted slate           */
-  --ink-faint: #95a0a8;  /* labels, meta          */
-  --line:      #dfe6ea;  /* hairlines             */
-  --accent:    #2f7d92;  /* steel teal-blue       */
-  --code-bg:   #e9eff1;
+  --bg:        #fdfdf9;  /* off-white paper       */
+  --ink:       #111111;  /* near-black text       */
+  --ink-soft:  #444444;  /* muted body            */
+  --ink-faint: #888888;  /* labels, meta          */
+  --line:      #dddddd;  /* hairlines & rules     */
+  --accent:    #1a56b0;  /* classic academic blue */
+  --code-bg:   #f1f1ea;
 
-  /* Type: serif for reading, sans for headings & chrome, mono for code */
-  --font-serif: "Source Serif 4", Charter, Georgia, Cambria, "Times New Roman", serif;
-  --font-sans:  "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Type: Newsreader serif throughout, mono for code */
+  --font-serif: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
-  --measure: 60rem;
+  --measure: 44rem;
 }
 
 * { box-sizing: border-box; }
@@ -30,24 +30,10 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-/* Sans-serif for navigation, labels, and UI chrome */
-.site-nav,
-.course-filter,
-.content a.course-chip,
-.content a.course-tag,
-.course-name,
-.note-meta,
-.note-date,
-.note-title,
-.back,
-.page-about h1 + p {
-  font-family: var(--font-sans);
 }
 
 /* Layout ------------------------------------------------------- */
@@ -55,17 +41,15 @@ body {
 .page {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: clamp(3rem, 10vh, 6.5rem) clamp(1.4rem, 5vw, 3rem) 4rem;
+  padding: clamp(3rem, 10vh, 6rem) clamp(1.4rem, 5vw, 3rem) 4rem;
 }
 
 /* Site navigation */
 .site-nav {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.5rem;
   margin-bottom: 2.6rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
 }
 .site-nav a {
   color: var(--ink-faint);
@@ -73,98 +57,107 @@ body {
   transition: color 0.18s ease;
 }
 .site-nav a:hover { color: var(--accent); }
-.site-nav a.active { color: var(--ink); }
+.site-nav a.active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* Rendered Markdown ------------------------------------------- */
 
-/* Name (first H1) */
+/* Name / page title (first H1) */
 .content h1 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: clamp(2.1rem, 6vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.6rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+  margin: 0 0 0.8rem;
 }
 
-/* Contact row: the icon links immediately after the name (About page only) */
+/* About page: the name is centered, with the contact row beneath it */
+.content.page-about h1 {
+  text-align: center;
+  margin-bottom: 0.55rem;
+}
 .page-about .contact {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.3rem;
   margin: 0 0 2.8rem;
 }
 .content a.icon-link {
   display: inline-flex;
   line-height: 0;
   color: var(--ink-soft);
-  background-image: none;       /* drop the underline used by text links */
-  padding-bottom: 0;
+  text-decoration: none;
   transition: color 0.18s ease, transform 0.18s ease;
 }
 .content a.icon-link:hover {
   color: var(--accent);
-  background-image: none;
   transform: translateY(-1px);
 }
 .content a.icon-link svg { display: block; }
-/* The envelope glyph has built-in padding; the GitHub/Scholar marks are
-   full-bleed. Nudge only the envelope so it sits flush with the text column. */
-.contact a.icon-link:first-child svg { transform: translateX(-2px); }
 
-/* Subheadings (default — used in blog posts and any normal page) */
+/* Subheadings (blog posts / notes / misc) */
 .content h2 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 1.45rem;
-  letter-spacing: -0.01em;
-  margin: 2.6rem 0 0.8rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0;
+  margin: 2.4rem 0 0.8rem;
 }
-
 .content h3 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 1.15rem;
-  margin: 2rem 0 0.6rem;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.12rem;
+  margin: 1.9rem 0 0.5rem;
 }
 
-/* About page only: H2 is a small uppercase section label, not a heading */
+/* About page: H2 is a section header with a thin rule beneath it */
 .content.page-about h2 {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin: 3.2rem 0 0.95rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin: 2.8rem 0 1rem;
 }
 
-/* Body copy */
+/* Body copy — justified for the paper look */
 .content p,
 .content li {
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   line-height: 1.75;
 }
+.content p {
+  margin: 0 0 1.1rem;
+  text-align: justify;
+  hyphens: auto;
+}
 
-.content p { margin: 0 0 1.1rem; }
-
-.content em { font-style: normal; color: var(--accent); }
+.content em { font-style: italic; color: inherit; }
 .content strong { font-weight: 700; }
 
-/* Lists — hanging accent dash, no bullets */
-.content ul { list-style: none; margin: 0; padding: 0; }
+/* Lists — quiet bullet, hanging indent */
+.content ul { list-style: none; margin: 0 0 1.1rem; padding: 0; }
 .content ul li {
   position: relative;
-  padding-left: 1.5rem;
-  margin: 0.35rem 0;
+  padding-left: 1.3rem;
+  margin: 0.4rem 0;
+  text-align: left;
 }
 .content ul li::before {
-  content: "—";
+  content: "\2022";
   position: absolute;
-  left: 0;
-  color: var(--accent);
+  left: 0.2rem;
+  color: var(--ink-faint);
 }
 
-/* Award rows: name on the left, year flush right */
+/* Award / education rows: name left, year flush right */
 .content ul li:has(.year) {
   display: flex;
   align-items: baseline;
@@ -174,25 +167,27 @@ body {
   margin-left: auto;
   color: var(--ink-faint);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Notes — course filter */
 .course-filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin: 0 0 2.6rem;
-  font-size: 0.76rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  gap: 1.2rem;
+  margin: 0 0 2.4rem;
+  font-size: 0.95rem;
 }
 .content a.course-chip {
-  background-image: none;
-  padding-bottom: 0;
   color: var(--ink-faint);
+  text-decoration: none;
 }
 .content a.course-chip:hover { color: var(--accent); }
-.content a.course-chip.active { color: var(--ink); }
+.content a.course-chip.active {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* Notes — one block per course */
 .course-block { margin: 0 0 3rem; }
@@ -201,32 +196,31 @@ body {
 .course-name {
   display: flex;
   align-items: baseline;
-  gap: 0.7rem;
-  font-size: 0.78rem !important;
+  gap: 0.6rem;
+  font-size: 1.05rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin: 0 0 0.4rem !important;
-  padding-bottom: 0.7rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0.2rem !important;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--line);
 }
 .content .course-name a {
-  background-image: none;
-  padding-bottom: 0;
-  color: var(--ink-faint);
+  color: var(--ink);
+  text-decoration: none;
 }
 .content .course-name a:hover { color: var(--accent); }
 .course-count {
   color: var(--ink-faint);
   font-weight: 400;
-  font-size: 0.72rem;
+  font-size: 0.9rem;
 }
 
-/* Notes — note list within a block (no bullet dash) */
+/* Notes — note list within a block (no bullet) */
 .note-list { list-style: none; margin: 0; padding: 0; }
 .content .note-list li {
-  padding: 1rem 0;
+  padding: 0.9rem 0;
   margin: 0;
   border-bottom: 1px solid var(--line);
 }
@@ -236,36 +230,34 @@ body {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  background-image: none;
-  padding-bottom: 0;
+  text-decoration: none;
   color: var(--ink);
 }
-.note-title { font-weight: 700; }
+.note-title { font-weight: 600; }
 .content a.note-row:hover .note-title { color: var(--accent); }
 .note-date {
   margin-left: auto;
   color: var(--ink-faint);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .note-summary {
-  margin: 0.45rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  text-align: left;
 }
 .empty { color: var(--ink-soft); }
 
 /* Note page */
 .back {
   margin: 0 0 1.4rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
 }
 .content .back a {
-  background-image: none;
-  padding-bottom: 0;
   color: var(--ink-faint);
+  text-decoration: none;
 }
 .content .back a:hover { color: var(--accent); }
 .note-meta {
@@ -273,70 +265,61 @@ body {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 1rem;
-  margin: -0.3rem 0 2rem;
+  margin: -0.2rem 0 2rem;
   color: var(--ink-faint);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 .content a.course-tag {
-  background-image: none;
-  padding-bottom: 0;
   color: var(--ink-faint);
-  font-size: 0.76rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  text-decoration: none;
 }
 .content a.course-tag:hover { color: var(--accent); }
 .note-meta .note-date { margin-left: 0; }
 
-/* Links — quiet underline that warms on hover */
+/* Links — classic underlined academic blue */
 .content a {
-  color: var(--ink);
-  text-decoration: none;
-  background-image: linear-gradient(var(--line), var(--line));
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  padding-bottom: 1px;
-  transition: color 0.18s ease, background-image 0.18s ease;
-}
-.content a:hover {
   color: var(--accent);
-  background-image: linear-gradient(var(--accent), var(--accent));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(26, 86, 176, 0.4);
+  transition: text-decoration-color 0.18s ease, color 0.18s ease;
 }
+.content a:hover { text-decoration-color: var(--accent); }
 
 .content hr {
   border: 0;
   border-top: 1px solid var(--line);
-  margin: 2.8rem 0;
+  margin: 2.6rem 0;
 }
 
 .content blockquote {
   margin: 1.4rem 0;
   padding-left: 1.1rem;
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--line);
   color: var(--ink-soft);
   font-style: italic;
 }
 
 .content code {
   font-family: var(--font-mono);
-  font-size: 0.92em;
+  font-size: 0.9em;
   background: var(--code-bg);
-  padding: 0.12em 0.38em;
-  border-radius: 4px;
+  padding: 0.12em 0.36em;
+  border-radius: 3px;
 }
 .content pre {
   font-family: var(--font-mono);
   background: var(--code-bg);
   padding: 1rem 1.1rem;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow-x: auto;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  text-align: left;
 }
 .content pre code { background: none; padding: 0; }
 
-/* Math (KaTeX) — keep KaTeX's own 1.21em scaling so math optically
-   matches the surrounding text size (don't force it to 1em). */
+/* Math (KaTeX) — keep KaTeX's own scaling so math matches the text size. */
 
 /* Accessibility ------------------------------------------------ */
 
