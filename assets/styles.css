@@ -19,7 +19,7 @@
   --font-serif: "Newsreader", Georgia, Cambria, "Times New Roman", serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
-  --measure: 44rem;
+  --measure: 52rem;
 }
 
 * { box-sizing: border-box; }
