@@ -59,4 +59,4 @@ $$\sum_{x} -p(x) \log_2 p(x)$$
 
 这是一个下界，仅仅在完美压缩时得到实现，可以将其命名为“熵”（Entropy）。下面的图中，黄色矩形面积就代表了这个期望长度
 
-![alt text](image.png)
+![alt text](content/notes/image.png)

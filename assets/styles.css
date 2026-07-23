@@ -350,6 +350,15 @@ body {
 }
 .content pre code { background: none; padding: 0; }
 
+/* Figures / images inside notes — scale to the column (avatar is exempt) */
+.content img:not(.avatar) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.4rem 0;
+  border-radius: 6px;
+}
+
 /* Math (KaTeX) — keep KaTeX's own scaling so math matches the text size. */
 
 /* Accessibility ------------------------------------------------ */
