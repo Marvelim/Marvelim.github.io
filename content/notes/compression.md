@@ -5,7 +5,7 @@ date: 2026-07-22
 summary: Notes on entropy, compression, and much more.
 ---
 
-# 压缩
+# Compression is Intelligence
 
 ## 引子：Huffman Code
 
@@ -51,7 +51,12 @@ summary: Notes on entropy, compression, and much more.
 
 当然一般的压缩不是完美的，这个信息刻画的是编码长度的下界。
 
-### 熵
+### 熵 (Entropy)
 
+对一个序列，可以定义其字符平均信息，或者说，期望字符编码长度
 
+$$\sum_{x} -p(x) \log_2 p(x)$$
 
+这是一个下界，仅仅在完美压缩时得到实现，可以将其命名为“熵”（Entropy）。下面的图中，黄色矩形面积就代表了这个期望长度
+
+![alt text](image.png)

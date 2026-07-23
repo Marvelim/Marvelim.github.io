@@ -84,8 +84,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.3rem;
-  margin: 0 0 0.55rem;
+  gap: 1.4rem;
+  margin: 0 0 2.8rem;
+}
+.page-about .profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
 }
 .page-about .profile h1 {
   margin: 0;
@@ -101,14 +107,16 @@ body {
 }
 @media (max-width: 30rem) {
   .page-about .profile { flex-direction: column; gap: 0.9rem; }
+  .page-about .profile-text { align-items: center; }
   .page-about .profile h1 { text-align: center; }
+  .page-about .contact { justify-content: center; }
 }
 .page-about .contact {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1.3rem;
-  margin: 0 0 2.8rem;
+  gap: 1.1rem;
+  margin: 0;
 }
 .content a.icon-link {
   display: inline-flex;
