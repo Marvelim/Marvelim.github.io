@@ -75,10 +75,33 @@ body {
   margin: 0 0 0.8rem;
 }
 
-/* About page: the name is centered, with the contact row beneath it */
+/* About page: avatar + name sit side by side, centered as a group */
 .content.page-about h1 {
   text-align: center;
   margin-bottom: 0.55rem;
+}
+.page-about .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  margin: 0 0 0.55rem;
+}
+.page-about .profile h1 {
+  margin: 0;
+  text-align: left;
+}
+.page-about .avatar {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+@media (max-width: 30rem) {
+  .page-about .profile { flex-direction: column; gap: 0.9rem; }
+  .page-about .profile h1 { text-align: center; }
 }
 .page-about .contact {
   display: flex;

@@ -2,7 +2,10 @@
 title: Mingyu Li
 ---
 
-# Mingyu Li
+<div class="profile">
+  <img class="avatar" src="assets/profile.jpg" alt="Portrait of Mingyu Li" width="104" height="104" />
+  <h1>Mingyu Li</h1>
+</div>
 
 <p class="contact">
   <a class="icon-link" href="mailto:mingyulics@stu.pku.edu.cn" aria-label="Email" title="Email">

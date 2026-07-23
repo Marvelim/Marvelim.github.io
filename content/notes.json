@@ -1,23 +1,9 @@
 [
   {
-    "slug": "ml-bias-variance",
-    "title": "The bias–variance tradeoff",
+    "slug": "compression",
+    "title": "Compression is Intelligence",
     "course": "Machine Learning",
-    "date": "2026-07-05",
-    "summary": "Why a more flexible model isn't always a better one."
-  },
-  {
-    "slug": "linear-algebra-svd",
-    "title": "The singular value decomposition",
-    "course": "Linear Algebra",
-    "date": "2026-07-02",
-    "summary": "Every matrix is a rotation, a scaling, and another rotation."
-  },
-  {
-    "slug": "why-notes",
-    "title": "Why I keep notes here",
-    "course": "Meta",
-    "date": "2026-06-18",
-    "summary": "A home for course notes, paper readings, and half-baked ideas."
+    "date": "2026-07-22",
+    "summary": "Notes on entropy, compression, and much more."
   }
 ]
