@@ -32,10 +32,10 @@ My research focuses on the intersection of *AI and biomedicine*. I'm interested 
 - [**PerturbCellRL: Verifier-Guided Reinforcement Learning for Single-Cell Perturbation Prediction**](https://arxiv.org/pdf/2606.27752)  
   Dongxia Wu, **Mingyu Li**, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox. *arXiv*, 2026.
 
-## Education
+## Experience
 
-- **Peking University** <span class="year">2023.09–2027.06 (expected)</span>
-- **Stanford University** <span class="year">2026.06–2026.09</span>
+- <span><strong>Peking University</strong><br>Bachelor’s Student</span> <span class="year">2023.09–2027.06 (expected)</span>
+- <span><strong>Stanford University</strong><br>Visiting Student</span> <span class="year">July to August, 2026</span>
 
 ## Honors and Awards
 
