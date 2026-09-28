@@ -3,7 +3,7 @@ title: Mingyu Li
 ---
 
 <div class="profile">
-  <img class="avatar" src="assets/profile.jpg" alt="Portrait of Mingyu Li" width="104" height="104" />
+  <img class="avatar" src="assets/profile.jpg?v=2" alt="Portrait of Mingyu Li" width="104" height="116" />
   <div class="profile-text">
     <h1>Mingyu Li</h1>
     <p class="contact">

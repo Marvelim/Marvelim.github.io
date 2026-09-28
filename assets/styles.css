@@ -100,8 +100,8 @@ body {
 .page-about .avatar {
   flex: none;
   width: 104px;
-  height: 104px;
-  border-radius: 50%;
+  height: 116px;
+  border-radius: 12px;
   object-fit: cover;
   object-position: center 25%;
 }
