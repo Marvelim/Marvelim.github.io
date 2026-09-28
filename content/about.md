@@ -35,7 +35,7 @@ My research focuses on the intersection of *AI and biomedicine*. I'm interested 
 ## Experience
 
 - <span><strong>Peking University</strong><br>Bachelor’s Student</span> <span class="year">2023.09–2027.06 (expected)</span>
-- <span><strong>Stanford University</strong><br>Visiting Student</span> <span class="year">July to August, 2026</span>
+- <span><strong>Stanford University</strong><br>Visiting Student</span> <span class="year">2026.07–2026.08</span>
 
 ## Honors and Awards
 
