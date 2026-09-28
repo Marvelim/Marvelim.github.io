@@ -37,7 +37,7 @@ My research lives at the intersection of *AI and biomedicine*. I'm drawn to brin
 - **Peking University** <span class="year">2023.09 - 2027.06 (Expected)</span>
 - **Stanford University** <span class="year">2026.06 - 2026.09 </span>
 
-## A few honors
+## Honors and Awards
 
 - **John Hopcroft Scholarship** <span class="year">2025</span>
 - **Silver Medal, National Olympiad in Informatics** <span class="year">2021</span>
