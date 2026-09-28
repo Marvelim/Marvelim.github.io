@@ -40,6 +40,6 @@ My research focuses on the intersection of *AI and biomedicine*. I'm interested 
 ## Honors and Awards
 
 - **John Hopcroft Scholarship** <span class="year">2025</span>
-- **Silver Medal, National Olympiad in Informatics** <span class="year">2021</span>
-- **2nd Prize in Problem Setting, $23^{\text{rd}}$ PKU Programming Competition** <span class="year">2025</span>
-- **2nd Prize, $22^{\text{nd}}$ PKU Programming Competition** <span class="year">2024</span>
+- <span>2nd Prize in Problem Setting, $23^{\text{rd}}$ PKU Programming Competition</span> <span class="year">2025</span>
+- <span>2nd Prize, $22^{\text{nd}}$ PKU Programming Competition</span> <span class="year">2024</span>
+- **🥈 Silver Medal, National Olympiad in Informatics (NOI)** <span class="year">2021</span>
