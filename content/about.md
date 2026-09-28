@@ -25,7 +25,7 @@ title: Mingyu Li
 
 Hi — I'm Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/).
 
-My research lives at the intersection of *AI and biomedicine*. I'm drawn to bringing emerging capabilities — generative models in particular — to biological and medical problems, with the hope of accelerating discovery and improving human health.
+My research focuses on the intersection of *AI and biomedicine*. I'm interested in applying emerging AI methods — particularly generative models — to biological and medical problems, with the aim of accelerating discovery and improving human health.
 
 ## Publications
 
@@ -34,8 +34,8 @@ My research lives at the intersection of *AI and biomedicine*. I'm drawn to brin
 
 ## Education
 
-- **Peking University** <span class="year">2023.09 - 2027.06 (Expected)</span>
-- **Stanford University** <span class="year">2026.06 - 2026.09 </span>
+- **Peking University** <span class="year">2023.09–2027.06 (expected)</span>
+- **Stanford University** <span class="year">2026.06–2026.09</span>
 
 ## Honors and Awards
 
