@@ -41,34 +41,11 @@ Then link to it from any page with `[Research](#/research)`. That's it.
 
 Math uses standard LaTeX delimiters: `$ ... $` inline, `$$ ... $$` display.
 
-## Add a note
+## Local notes
 
-Drop a Markdown file in `content/notes/`, e.g. `content/notes/my-note.md`:
-
-```markdown
----
-title: My note
-course: Machine Learning
-date: 2026-06-18
-summary: One line shown under the note on the index.
----
-
-# My note
-
-Write Markdown + LaTeX here, like $e^{i\pi}+1=0$.
-```
-
-The `course` field decides which block the note lands in — pick any course
-name and notes sharing it are grouped together. Then rebuild the index:
-
-```bash
-python3 scripts/build_notes.py    # regenerates content/notes.json
-```
-
-The notes index (`#/notes`) groups notes into one block per course, newest-first,
-with a course filter at the top (`#/notes/course/Machine%20Learning`); each note
-lives at `#/note/<filename>`. On the live site the deploy workflow runs
-`build_notes.py` for you, so you only need to commit the new `.md` file.
+Notes are kept in the local `minimal-blog/content/notes/` folder for personal use.
+The Notes section is no longer published. `push.sh` excludes `content/notes/`
+and `content/notes.json`, and deployment excludes them as well.
 
 ## Run locally
 
@@ -89,6 +66,6 @@ Edit your content in this folder, then run:
 ./push.sh "new blog post" # or pass your own message
 ```
 
-It rebuilds the blog index, mirrors the files into the git repo, and pushes to
+It mirrors the site files, excluding local notes, into the git repo and pushes to
 `main`. GitHub Actions builds and deploys to https://marvelim.github.io (live
 in about a minute). The repo path is set near the top of `push.sh`.

@@ -19,15 +19,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build notes index
-        run: python3 scripts/build_notes.py
-
       - name: Assemble static site
         run: |
           rm -rf _site
           mkdir -p _site
           cp index.html _site/
-          cp -r assets content _site/
+          cp -r assets _site/
+          mkdir -p _site/content
+          rsync -a --exclude='/notes/' --exclude='/notes.json' content/ _site/content/
           touch _site/.nojekyll
 
       - name: Deploy to gh-pages

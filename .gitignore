@@ -4,3 +4,7 @@ _site/
 .jekyll-cache/
 .tweet-cache/
 .claude/
+
+# Notes remain local and are not published.
+/content/notes/
+/content/notes.json
