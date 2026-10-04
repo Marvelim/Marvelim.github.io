@@ -45,8 +45,8 @@
   --accent:    #c52d60;  /* berry red             */
   --code-bg:   #f1f1ea;
 
-  /* Type: PT Serif by default, Pagella on the homepage, mono for code */
-  --font-serif: "PT Serif", Georgia, Cambria, "Times New Roman", serif;
+  /* Type: COLM's Pagella throughout the site, mono for code */
+  --font-serif: "TeX Gyre Pagella", Palatino, "Palatino Linotype", "Book Antiqua", serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
   --measure: 58rem;
@@ -64,11 +64,6 @@ body {
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-/* Use the COLM paper font throughout the homepage. */
-body:has(.page-about) {
-  --font-serif: "TeX Gyre Pagella", Palatino, "Palatino Linotype", "Book Antiqua", serif;
 }
 
 /* Layout ------------------------------------------------------- */
