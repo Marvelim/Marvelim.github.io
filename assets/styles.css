@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------
    Academic — a LaTeX / professor-homepage look.
-   Pure white background, dark text, iris purple links, serif type.
+   Pure white background, dark text, berry red links, serif type.
    Centered name, justified body copy, thin section rules.
    Styles the HTML that Markdown renders into `.content`.
    One column, generous whitespace.
@@ -42,14 +42,14 @@
   --ink-soft:  #444444;  /* muted body            */
   --ink-faint: #888888;  /* labels, meta          */
   --line:      #dddddd;  /* hairlines & rules     */
-  --accent:    #7542d6;  /* iris purple           */
+  --accent:    #c52d60;  /* berry red             */
   --code-bg:   #f1f1ea;
 
   /* Type: PT Serif by default, Pagella on the homepage, mono for code */
   --font-serif: "PT Serif", Georgia, Cambria, "Times New Roman", serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
-  --measure: 52rem;
+  --measure: 58rem;
 }
 
 * { box-sizing: border-box; }
@@ -198,6 +198,7 @@ body:has(.page-about) {
 .content li {
   font-size: 1.15rem;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 .content p {
   margin: 0 0 1.1rem;
@@ -342,13 +343,13 @@ body:has(.page-about) {
 .content a.course-tag:hover { color: var(--accent); }
 .note-meta .note-date { margin-left: 0; }
 
-/* Links — underlined iris purple */
+/* Links — underlined berry red */
 .content a {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  text-decoration-color: rgba(117, 66, 214, 0.4);
+  text-decoration-color: rgba(197, 45, 96, 0.4);
   transition: text-decoration-color 0.18s ease, color 0.18s ease;
 }
 .content a:hover { text-decoration-color: var(--accent); }
