@@ -1,21 +1,51 @@
 /* ---------------------------------------------------------------
    Academic — a LaTeX / professor-homepage look.
-   Off-white paper, black text, classic blue links, PT Serif.
+   Pure white background, dark text, iris purple links, serif type.
    Centered name, justified body copy, thin section rules.
    Styles the HTML that Markdown renders into `.content`.
    One column, generous whitespace.
    --------------------------------------------------------------- */
 
+/* COLM's paper template uses TeX Gyre Pagella, a Palatino-family face. */
+@font-face {
+  font-family: "TeX Gyre Pagella";
+  src: url("fonts/texgyrepagella-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TeX Gyre Pagella";
+  src: url("fonts/texgyrepagella-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TeX Gyre Pagella";
+  src: url("fonts/texgyrepagella-italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TeX Gyre Pagella";
+  src: url("fonts/texgyrepagella-bolditalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  --bg:        #fdfdf9;  /* off-white paper       */
-  --ink:       #111111;  /* near-black text       */
+  --bg:        #ffffff;  /* pure white            */
+  --ink:       #242424;  /* dark gray text        */
   --ink-soft:  #444444;  /* muted body            */
   --ink-faint: #888888;  /* labels, meta          */
   --line:      #dddddd;  /* hairlines & rules     */
-  --accent:    #1a56b0;  /* classic academic blue */
+  --accent:    #7542d6;  /* iris purple           */
   --code-bg:   #f1f1ea;
 
-  /* Type: Newsreader serif throughout, mono for code */
+  /* Type: PT Serif by default, Pagella on the homepage, mono for code */
   --font-serif: "PT Serif", Georgia, Cambria, "Times New Roman", serif;
   --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 
@@ -34,6 +64,11 @@ body {
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Use the COLM paper font throughout the homepage. */
+body:has(.page-about) {
+  --font-serif: "TeX Gyre Pagella", Palatino, "Palatino Linotype", "Book Antiqua", serif;
 }
 
 /* Layout ------------------------------------------------------- */
@@ -307,13 +342,13 @@ body {
 .content a.course-tag:hover { color: var(--accent); }
 .note-meta .note-date { margin-left: 0; }
 
-/* Links — classic underlined academic blue */
+/* Links — underlined iris purple */
 .content a {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
-  text-decoration-color: rgba(26, 86, 176, 0.4);
+  text-decoration-color: rgba(117, 66, 214, 0.4);
   transition: text-decoration-color 0.18s ease, color 0.18s ease;
 }
 .content a:hover { text-decoration-color: var(--accent); }
