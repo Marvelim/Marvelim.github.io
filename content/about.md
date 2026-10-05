@@ -27,11 +27,10 @@ Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu
 
 My research focuses on the intersection of *AI and biomedicine*. I’m interested in applying emerging AI methods, particularly generative models, to biological and medical problems, with the aim of accelerating discovery and improving human health.
 
-## Publications
+## Publications <small class="publication-legend">∗ Equal contribution · ✉ Corresponding author</small>
 
 - [**PerturbCellRL: Aligning Distributions and Grounding Biology via Post-Training Perturbation Generators**](https://arxiv.org/pdf/2606.27752)  
-  Dongxia Wu<sup title="Equal contribution">∗</sup>, **Mingyu Li**<sup title="Equal contribution">∗</sup>, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox<sup title="Corresponding author">✉</sup>. *arXiv*, 2026.<br>
-  <small>∗ Equal contribution · ✉ Corresponding author</small>
+  Dongxia Wu<sup title="Equal contribution">∗</sup>, **Mingyu Li**<sup title="Equal contribution">∗</sup>, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox<sup title="Corresponding author">✉</sup>. *arXiv*, 2026.
 
 ## Experience
 
