@@ -30,7 +30,8 @@ My research focuses on the intersection of *AI and biomedicine*. I’m intereste
 ## Publications
 
 - [**PerturbCellRL: Aligning Distributions and Grounding Biology via Post-Training Perturbation Generators**](https://arxiv.org/pdf/2606.27752)  
-  Dongxia Wu, **Mingyu Li**, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox. *arXiv*, 2026.
+  Dongxia Wu<sup title="Equal contribution">∗</sup>, **Mingyu Li**<sup title="Equal contribution">∗</sup>, Yuhui Zhang, Anurendra Kumar, Emma Lundberg, Serena Yeung-Levy, Emily B. Fox<sup title="Corresponding author">✉</sup>. *arXiv*, 2026.<br>
+  <small>∗ Equal contribution · ✉ Corresponding author</small>
 
 ## Experience
 
