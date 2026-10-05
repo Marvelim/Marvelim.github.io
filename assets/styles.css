@@ -188,6 +188,23 @@ body {
   margin: 2.8rem 0 1rem;
 }
 
+/* Author-marker legend shares the Publications heading row. */
+.content.page-about h2:has(.publication-legend) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+  row-gap: 0.2rem;
+}
+.publication-legend {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
 /* Body copy — justified for the paper look */
 .content p,
 .content li {
