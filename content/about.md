@@ -39,7 +39,9 @@ My research focuses on the intersection of *AI and biomedicine*. I’m intereste
 
 ## Honors and Awards
 
-- **John Hopcroft Scholarship** <span class="year">2025</span>
-- <span>2nd Prize in Problem Setting, 23rd PKU Programming Competition</span> <span class="year">2025</span>
-- <span>2nd Prize, 22nd PKU Programming Competition</span> <span class="year">2024</span>
-- **🥈 Silver Medal, National Olympiad in Informatics (NOI)** <span class="year">2021</span>
+- <span><strong>Peking University Scholarship</strong>, Peking University</span> <span class="year">2026</span>
+- <span>Merit Student, Peking University</span> <span class="year">2026</span>
+- <span><strong>John Hopcroft Scholarship</strong>, Turing Program, Peking University</span> <span class="year">2025</span>
+- <span>Second Prize in Problem Setting, 23rd Programming Competition of Peking University</span> <span class="year">2025</span>
+- <span>Second Prize, 22nd Programming Competition of Peking University</span> <span class="year">2024</span>
+- <span><strong>Silver Medal</strong>, National Olympiad in Informatics (NOI)</span> <span class="year">2021</span>
