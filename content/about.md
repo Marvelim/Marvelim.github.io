@@ -23,7 +23,7 @@ title: Mingyu Li
   </div>
 </div>
 
-Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/).
+Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu.cn/english/) at [Peking University](https://www.pku.edu.cn/), Beijing, China.
 
 My research focuses on the intersection of *AI and biomedicine*. I’m interested in applying emerging AI methods, particularly generative models, to biological and medical problems, with the aim of accelerating discovery and improving human health.
 
