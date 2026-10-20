@@ -409,13 +409,188 @@ body {
 
 /* Math (KaTeX) — keep KaTeX's own scaling so math matches the text size. */
 
+/* Notes calendar — a quiet page in a personal notebook. */
+.notes-header { margin-bottom: 2.8rem; }
+.notes-title-dot { color: var(--accent); }
+.content .notes-header p {
+  margin: 0.8rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  text-align: left;
+}
+.calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.content .calendar-toolbar h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.calendar-toolbar h2 span {
+  color: var(--ink-faint);
+  font-size: 1.05rem;
+  margin-left: 0.45rem;
+}
+.calendar-controls { display: flex; align-items: center; gap: 0.25rem; }
+.notes-button {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  min-height: 40px;
+  padding: 0.6rem 0.85rem;
+  cursor: pointer;
+}
+.notes-button:hover { color: var(--accent); border-color: var(--accent); }
+.notes-button:disabled { opacity: 0.35; cursor: default; }
+.month-arrow { border-color: transparent; font-size: 1.25rem; min-width: 40px; padding: 0.5rem; }
+.calendar-weekdays,
+.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.calendar-weekdays {
+  border-top: 1px solid var(--ink);
+  padding: 0.75rem 0;
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+}
+.calendar-weekdays span { padding-left: 0.8rem; }
+.calendar-grid { border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.calendar-day,
+.calendar-blank {
+  min-width: 0;
+  min-height: 88px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.calendar-day {
+  position: relative;
+  appearance: none;
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  text-align: left;
+  padding: 0.55rem 0.7rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.calendar-blank { background: #fafafa; }
+.calendar-day:hover { background: #faf5f7; }
+.calendar-day[aria-pressed="true"] {
+  background: #fcf0f4;
+  box-shadow: inset 0 0 0 1px var(--accent);
+  color: var(--accent);
+}
+.day-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.is-today .day-number { border-bottom: 1px solid var(--accent); color: var(--accent); }
+.has-notes .day-number { font-weight: 700; }
+.day-title {
+  max-width: 100%;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.day-more { color: var(--accent); white-space: nowrap; }
+.day-dot,
+.legend-dot { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
+.day-dot { position: absolute; bottom: 0.4rem; left: 0.8rem; }
+.legend-dot { display: inline-block; vertical-align: middle; margin-right: 0.5rem; }
+.calendar-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+}
+.calendar-caption > span:last-child { font-style: italic; }
+.content .calendar-caption a { text-decoration: none; }
+.day-reading { margin-top: 2.4rem; }
+.day-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+.content .day-heading-row h2 { margin: 0; font-size: 1.05rem; font-weight: 400; }
+.day-heading-row h2 span,
+.day-entry-count { color: var(--ink-faint); font-size: 0.85rem; font-weight: 400; }
+.notes-empty { padding: 1.8rem 0; }
+.content .notes-empty p {
+  margin: 0 0 0.3rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  text-align: left;
+}
+.notes-empty > span,
+.notes-muted { color: var(--ink-faint); font-size: 0.9rem; }
+.journal-entry { padding-top: 1.7rem; min-width: 0; overflow-wrap: break-word; }
+.journal-entry + .journal-entry { border-top: 1px solid var(--line); margin-top: 2.2rem; }
+.journal-entry header { margin-bottom: 1.5rem; }
+.content .journal-entry header h3 { margin: 0 0 0.35rem; font-size: 1.6rem; line-height: 1.3; }
+.content .journal-entry header h3 a { color: var(--ink); text-decoration: none; }
+.content .journal-entry header h3 a:hover { color: var(--accent); }
+.content .entry-date { color: var(--ink-faint); font-size: 0.85rem; text-decoration: none; }
+.page-note .journal-entry { padding-top: 0; }
+.entry-body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
+.entry-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.entry-body th, .entry-body td { border-bottom: 1px solid var(--line); padding: 0.5rem 0.8rem; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+@media (max-width: 36rem) {
+  .notes-header { margin-bottom: 2rem; }
+  .content .calendar-toolbar h2 { font-size: 1.45rem; }
+  .calendar-toolbar h2 span { display: block; font-size: 0.85rem; margin: 0.2rem 0 0; }
+  .calendar-weekdays span { padding: 0; text-align: center; font-size: 0.7rem; }
+  .calendar-day, .calendar-blank { min-height: 54px; }
+  .calendar-day { align-items: center; padding: 0.5rem 0.1rem 0.9rem; }
+  .day-title { display: none; }
+  .day-dot { left: calc(50% - 2px); bottom: 0.45rem; }
+  .calendar-caption { font-size: 0.73rem; gap: 0.5rem; }
+  .content .day-heading-row h2 { font-size: 1rem; }
+  .day-heading-row h2 span { font-size: 0.75rem; }
+  .content .notes-header p { font-size: 1rem; }
+}
+
 /* Accessibility ------------------------------------------------ */
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
+.calendar-day:focus-visible { outline-offset: -3px; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
