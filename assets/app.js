@@ -233,7 +233,6 @@ async function renderCalendar(el, posts, routeDate, version) {
   const dayHadFocus = document.activeElement?.hasAttribute("data-day");
   el.innerHTML = `<header class="notes-header">
       <h1>Notes<span class="notes-title-dot" aria-hidden="true">.</span></h1>
-      <p>Thoughts, things I’m learning, and bits of everyday life.</p>
     </header>
     <section class="calendar" aria-label="Notes calendar">
       <div class="calendar-toolbar">
