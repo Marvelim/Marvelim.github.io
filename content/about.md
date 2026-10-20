@@ -27,7 +27,7 @@ Hi! I’m Mingyu Li, an undergraduate in the [Turing Class](https://cfcs.pku.edu
 
 My research focuses on the intersection of *AI and biomedicine*. I’m interested in applying emerging AI methods, particularly generative models, to biological and medical problems, with the aim of accelerating discovery and improving human health.
 
-I also jot down occasional thoughts and notes here.
+I also jot down occasional thoughts and [notes](#/notes) here.
 
 ## Publications <small class="publication-legend">∗ Equal contribution · ✉ Corresponding author</small>
 
