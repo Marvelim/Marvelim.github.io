@@ -1,5 +1,5 @@
 ---
-title: Quick notes
+title: What is Q^*(s, a)
 date: 2026-11-05
 ---
 
